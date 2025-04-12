@@ -1,6 +1,6 @@
 # Emergence2D
 
-This is our plan for the game we named `Emergence2D`, a 2D platformer shooting game
+Description: This is our plan for the game we named `Emergence2D`, a 2D platformer shooting game. This game is set in a world that builds itself as you move through it starting from an empty white void, emerging into a fully developed world. The environment is being built in as the user develops and clears new levels, whilst simultaneously coming across new creatures / enemies which become stronger through the new installments of world fragments in the unfinished reality.
 
 ## Learning Goals
 
@@ -20,29 +20,32 @@ This is our plan for the game we named `Emergence2D`, a 2D platformer shooting g
 
 ## Core Features
 
+## Essentials
 1. Player Mechanics:
 - Move (left/right), jump (with gravity), shoot (in direction)
 - Health and damage system
-- Weapon upgrades / power-ups
 
 2. Enemy System:
 - Basic AI (follow player, patrol, shoot)
 - Multiple enemy types with different health and speed
 
+## Nice to Have
 3. Level System:
 - Scene-based or dynamically loaded levels
 - Level completion (goal point or defeat all enemies)
 - Difficulty progression: enemies, hazards, terrain complexity (might remove terrain complexity and simplify the game a lot more)
 
+## Stretch Goals
 4. Extras (If we have time):
 - UI: health bar, ammo count, level indicator
+- Weapon upgrades / power-ups
 - Pickups: health, ammo, speed boost, new weapons
 - Save/load level progress
 - Audio (background music, SFX for shooting, enemies, jumps), most will most likely be found via royalty free sites
 
 ## Architecture Plan
 
-GameManager
+Core Structure (GameManager)
  - UI
  - Player
  - Enemies
