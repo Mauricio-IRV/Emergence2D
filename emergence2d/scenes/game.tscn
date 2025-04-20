@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcqjy0o5qa2f0"]
 
-[ext_resource type="PackedScene" uid="uid://c1lrmvblgxa2l" path="res://scenes/King_player.tscn" id="1_uwrxv"]
-[ext_resource type="Script" uid="uid://d4aie10gcap2n" path="res://scripts/king_player.gd" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://c1lrmvblgxa2l" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://d4aie10gcap2n" path="res://scripts/Player.gd" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://s5c8upvswutt" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="3_lnu2h"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
 
 [node name="Game" type="Node2D"]
 
-[node name="King_player" parent="." instance=ExtResource("1_uwrxv")]
+[node name="player" parent="." instance=ExtResource("1_uwrxv")]
 script = ExtResource("2_yqjtg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
