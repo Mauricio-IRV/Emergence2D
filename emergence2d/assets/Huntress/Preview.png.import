@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djwb8hbl3h0hm"
-path="res://.godot/imported/Preview.png-1dfe69ccca45afd5184332ebf73ac2be.ctex"
+path="res://.godot/imported/Preview.png-d86c230d6b912d655d74a29b342e5f4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Huntress 2/Preview.png"
-dest_files=["res://.godot/imported/Preview.png-1dfe69ccca45afd5184332ebf73ac2be.ctex"]
+source_file="res://assets/Huntress/Preview.png"
+dest_files=["res://.godot/imported/Preview.png-d86c230d6b912d655d74a29b342e5f4d.ctex"]
 
 [params]
 

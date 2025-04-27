@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b60rjarly1dqb"
-path="res://.godot/imported/Attack.png-c42d9156540ebb7080b39ae57fe482d6.ctex"
+path="res://.godot/imported/Attack.png-8d6893397f32d014cc2d7ac7e6b65a34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Hero Knight 2/Sprites/Attack.png"
-dest_files=["res://.godot/imported/Attack.png-c42d9156540ebb7080b39ae57fe482d6.ctex"]
+source_file="res://assets/Evil Knight II/Sprites/Attack.png"
+dest_files=["res://.godot/imported/Attack.png-8d6893397f32d014cc2d7ac7e6b65a34.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d36dnq1pvrg7f"
-path="res://.godot/imported/Idle.png-131684673ef1fb83a0a6182c8867c237.ctex"
+path="res://.godot/imported/Idle.png-e9699bf01b0bd3b4d2932c3745ec7826.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Huntress 2/Sprites/Character/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-131684673ef1fb83a0a6182c8867c237.ctex"]
+source_file="res://assets/Huntress/Sprites/Character/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-e9699bf01b0bd3b4d2932c3745ec7826.ctex"]
 
 [params]
 

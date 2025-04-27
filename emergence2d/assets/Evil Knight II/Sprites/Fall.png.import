@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cprhlfeeacrkv"
-path="res://.godot/imported/Fall.png-ef39b0d79a678002850b355262840d58.ctex"
+path="res://.godot/imported/Fall.png-82d921da4fd8a030bbaebde855c16c9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Hero Knight 2/Sprites/Fall.png"
-dest_files=["res://.godot/imported/Fall.png-ef39b0d79a678002850b355262840d58.ctex"]
+source_file="res://assets/Evil Knight II/Sprites/Fall.png"
+dest_files=["res://.godot/imported/Fall.png-82d921da4fd8a030bbaebde855c16c9a.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gjiy1u27gjba"
-path="res://.godot/imported/Jump.png-b3e85e50a4a8bcc247a8ee53da37453b.ctex"
+path="res://.godot/imported/Jump.png-f8c7974d9d84d45891f58a96e776861a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/EVil Wizard 2/Sprites/Jump.png"
-dest_files=["res://.godot/imported/Jump.png-b3e85e50a4a8bcc247a8ee53da37453b.ctex"]
+source_file="res://assets/Evil Wizard II/Sprites/Jump.png"
+dest_files=["res://.godot/imported/Jump.png-f8c7974d9d84d45891f58a96e776861a.ctex"]
 
 [params]
 

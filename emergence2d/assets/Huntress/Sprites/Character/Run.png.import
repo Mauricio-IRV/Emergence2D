@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ey2hhqk03ivh"
-path="res://.godot/imported/Run.png-d33020f4a492bb5b3258bb6f497853b1.ctex"
+path="res://.godot/imported/Run.png-74fa85368ba2e5bd3d10f5c7f3257090.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Huntress 2/Sprites/Character/Run.png"
-dest_files=["res://.godot/imported/Run.png-d33020f4a492bb5b3258bb6f497853b1.ctex"]
+source_file="res://assets/Huntress/Sprites/Character/Run.png"
+dest_files=["res://.godot/imported/Run.png-74fa85368ba2e5bd3d10f5c7f3257090.ctex"]
 
 [params]
 

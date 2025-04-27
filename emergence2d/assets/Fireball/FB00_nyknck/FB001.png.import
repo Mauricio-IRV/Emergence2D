@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://beqeiimeosfet"
-path="res://.godot/imported/FB001.png-1a82e8e94df980ff89ec6ba00fbaa792.ctex"
+path="res://.godot/imported/FB001.png-fdd431a348e8cf16ec345dfa9868185f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/FB00_nyknck/FB00_nyknck/FB001.png"
-dest_files=["res://.godot/imported/FB001.png-1a82e8e94df980ff89ec6ba00fbaa792.ctex"]
+source_file="res://assets/Fireball/FB00_nyknck/FB001.png"
+dest_files=["res://.godot/imported/FB001.png-fdd431a348e8cf16ec345dfa9868185f.ctex"]
 
 [params]
 

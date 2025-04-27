@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://crnodxbrtkr70"
-path="res://.godot/imported/Run.png-cc98c4aa1b553fc1c3c41729c70e5925.ctex"
+path="res://.godot/imported/Run.png-35d4aeb82e661ab51ca653ea01b9c0eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/EVil Wizard 2/Sprites/Run.png"
-dest_files=["res://.godot/imported/Run.png-cc98c4aa1b553fc1c3c41729c70e5925.ctex"]
+source_file="res://assets/Evil Wizard II/Sprites/Run.png"
+dest_files=["res://.godot/imported/Run.png-35d4aeb82e661ab51ca653ea01b9c0eb.ctex"]
 
 [params]
 

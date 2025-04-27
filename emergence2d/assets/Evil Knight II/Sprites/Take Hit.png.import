@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5kummpgi3o1k"
-path="res://.godot/imported/Take Hit.png-e26eeebdba2acb1f1b453974b8c3a736.ctex"
+path="res://.godot/imported/Take Hit.png-e7859313726cb0544a9915f3746bf587.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Hero Knight 2/Sprites/Take Hit.png"
-dest_files=["res://.godot/imported/Take Hit.png-e26eeebdba2acb1f1b453974b8c3a736.ctex"]
+source_file="res://assets/Evil Knight II/Sprites/Take Hit.png"
+dest_files=["res://.godot/imported/Take Hit.png-e7859313726cb0544a9915f3746bf587.ctex"]
 
 [params]
 

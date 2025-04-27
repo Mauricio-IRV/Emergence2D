@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5famvjnog5do"
-path="res://.godot/imported/Move.png-0ea066925762aa66a3636f512351936b.ctex"
+path="res://.godot/imported/Move.png-ec07de8a0528d030fdea3b2b4b5a15e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Huntress 2/Sprites/Arrow/Move.png"
-dest_files=["res://.godot/imported/Move.png-0ea066925762aa66a3636f512351936b.ctex"]
+source_file="res://assets/Huntress/Sprites/Arrow/Move.png"
+dest_files=["res://.godot/imported/Move.png-ec07de8a0528d030fdea3b2b4b5a15e3.ctex"]
 
 [params]
 

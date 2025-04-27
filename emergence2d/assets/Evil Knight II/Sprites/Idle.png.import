@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bknkln4fe0gjl"
-path="res://.godot/imported/Idle.png-2a39c9085aa943724d37aa2d343b15ca.ctex"
+path="res://.godot/imported/Idle.png-3690a166988e20fdaebc1757a13d777d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Hero Knight 2/Sprites/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-2a39c9085aa943724d37aa2d343b15ca.ctex"]
+source_file="res://assets/Evil Knight II/Sprites/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-3690a166988e20fdaebc1757a13d777d.ctex"]
 
 [params]
 
