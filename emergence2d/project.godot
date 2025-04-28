@@ -17,8 +17,10 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1150
-window/size/viewport_height=629
+window/size/viewport_width=3000
+window/size/viewport_height=1000
+window/size/initial_position_type=0
+window/size/initial_position=Vector2i(0, 100)
 
 [input]
 
