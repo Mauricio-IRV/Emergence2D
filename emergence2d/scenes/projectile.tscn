@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw6ic4eweqmau"]
+
+[ext_resource type="Texture2D" uid="uid://ckuxobg8xx84v" path="res://assets/Fireball/FB00_nyknck/FB004.png" id="1_c8fcr"]
+[ext_resource type="Script" uid="uid://bl7go4nh76547" path="res://scripts/projectile.gd" id="1_q3m7n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3m7n"]
+size = Vector2(24.5, 16)
+
+[node name="Projectile" type="Area2D"]
+script = ExtResource("1_q3m7n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, 1.5)
+scale = Vector2(0.75, 0.96875)
+texture = ExtResource("1_c8fcr")
+offset = Vector2(-1.00057, -0.000205)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.25, 0)
+shape = SubResource("RectangleShape2D_q3m7n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

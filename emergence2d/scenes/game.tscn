@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcqjy0o5qa2f0"]
+[gd_scene load_steps=5 format=3 uid="uid://bcqjy0o5qa2f0"]
 
 [ext_resource type="PackedScene" uid="uid://c1lrmvblgxa2l" path="res://scenes/player.tscn" id="1_uwrxv"]
-[ext_resource type="Script" uid="uid://d4aie10gcap2n" path="res://scripts/Player.gd" id="2_yqjtg"]
 [ext_resource type="Script" uid="uid://c0wjk8r0q6ewk" path="res://scripts/parallax_background.gd" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://s5c8upvswutt" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="3_lnu2h"]
 
@@ -11,7 +10,6 @@
 
 [node name="player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(1, 42)
-script = ExtResource("2_yqjtg")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(-2, -6)
@@ -26,7 +24,7 @@ position = Vector2(-0.000205, -300)
 motion_mirroring = Vector2(1000, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-7, 20)
+position = Vector2(-0.000205, 19.9994)
 scale = Vector2(2.3875, 2.35294)
 texture = ExtResource("3_lnu2h")
 centered = false
