@@ -29,10 +29,16 @@ func _physics_process(delta: float) -> void:
 		# Handle shooting
 		if Input.is_action_just_pressed("attack"):
 			if shoot_direction == Vector2.RIGHT:
+				animatedSprite.flip_h  = false
 				shoot("attack_horizontal")
 				shoot_direction = Vector2.ZERO 
 			elif shoot_direction == Vector2.UP:
+				animatedSprite.flip_h = false
 				shoot("attack_up")
+				shoot_direction = Vector2.ZERO
+			elif shoot_direction == Vector2.LEFT:
+				animatedSprite.flip_h = true
+				shoot("attack_horizontal")
 				shoot_direction = Vector2.ZERO
 				
 
@@ -52,7 +58,6 @@ func _physics_process(delta: float) -> void:
 
 		# Handle jump
 		if Input.is_action_just_pressed("ui_up") and (is_on_floor() or coyote_timer > 0):
-			print ("triggered")
 			velocity.y = JUMP_VELOCITY
 			coyote_timer = 0 # prevent double jumping during coyote
 
