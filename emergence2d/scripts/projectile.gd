@@ -1,11 +1,10 @@
 extends Area2D
 
 @export var speed: float = 400.0
-var direction: Vector2 = Vector2.RIGHT
-
 @onready var sprite: Sprite2D = $Sprite2D
-
 @onready var screen_size = get_viewport().get_visible_rect().size
+
+var direction: Vector2 = Vector2.RIGHT
 
 func setup(new_direction: Vector2) -> void:
 	direction = new_direction

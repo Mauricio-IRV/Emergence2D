@@ -1,19 +1,19 @@
 extends CharacterBody2D
 
-@onready var animatedSprite = $AnimatedSprite2D
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -300.0
-
-
+@onready var animatedSprite := $AnimatedSprite2D
 @export var projectile_scene: PackedScene 
 var shoot_direction: Vector2 = Vector2.ZERO
 
+# seconds of forgiveness after falling
+@export var coyote_time := 0.15
+var coyote_timer := 0.0
+
+const SPEED := 300.0
+const JUMP_VELOCITY := -300.0
+
 func _physics_process(delta: float) -> void:
-	var directionX = Input.get_axis("ui_left", "ui_right")
-	var directionY = Input.get_axis("ui_up", "ui_down")
-	var coyote_time := 1
-	var coyote_timer := 0.0
+	var directionX := Input.get_axis("ui_left", "ui_right")
+	var directionY := Input.get_axis("ui_up", "ui_down")
 	
 	# FIRST: Handle aiming input (Shift + WASD)
 	if Input.is_action_pressed("shoot_ready_up") or Input.is_action_pressed("shoot_ready_down") or Input.is_action_pressed("shoot_ready_left") or Input.is_action_pressed("shoot_ready_right"):
@@ -45,7 +45,6 @@ func _physics_process(delta: float) -> void:
 		# While aiming, stop player movement
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	else:
-		
 		# Coyote time logic
 		if is_on_floor():
 			coyote_timer = coyote_time
@@ -64,9 +63,6 @@ func _physics_process(delta: float) -> void:
 		# Handle Crouch
 		if Input.is_action_just_pressed("ui_down"):
 			velocity.y = -(JUMP_VELOCITY/2)
-		# Normal Movement (no aiming mode)
-		if not is_on_floor():
-			velocity += get_gravity() * delta
 
 		# Handle jump
 		if Input.is_action_just_pressed("ui_up") and is_on_floor():
