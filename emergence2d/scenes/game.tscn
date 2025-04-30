@@ -1138,7 +1138,7 @@ metadata/_edit_lock_ = true
 [node name="WorldEnd" type="CollisionPolygon2D" parent="Hazards"]
 position = Vector2(0, 9)
 scale = Vector2(1.00548, 1.03442)
-polygon = PackedVector2Array(-986.595, 377.99, 2020.93, 377.99, 2020.93, 4.83364, -986.595, 4.83364)
+polygon = PackedVector2Array(-986.595, 377.99, 2986.63, 377.99, 2989.62, 6.76708, -986.595, 4.83364)
 script = ExtResource("6_p57ef")
 metadata/_edit_lock_ = true
 

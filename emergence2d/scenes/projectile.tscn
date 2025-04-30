@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bl7go4nh76547" path="res://scripts/projectile.gd" id="1_q3m7n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3m7n"]
-size = Vector2(24.5, 16)
+size = Vector2(23, 15)
 
 [node name="Projectile" type="Area2D"]
 script = ExtResource("1_q3m7n")
@@ -17,7 +17,7 @@ centered = false
 offset = Vector2(-0.000205, -0.000205)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8.25, 0)
+position = Vector2(33.5, 15.5)
 shape = SubResource("RectangleShape2D_q3m7n")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
