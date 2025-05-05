@@ -29,8 +29,6 @@ func setup(new_direction: Vector2) -> void:
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
 
-	#if position.x < -100 or position.x > screen_size.x + 100 or position.y < -100 or position.y > screen_size.y + 100:
-		#queue_free()
 
 func _on_body_entered(body: Node) -> void:
 	print ("Something got hit")

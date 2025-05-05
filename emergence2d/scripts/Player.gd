@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animatedSprite := $AnimatedSprite2D
 @export var projectile_scene: PackedScene 
 var shoot_direction: Vector2 = Vector2.ZERO
+var direct_shoot_dir = Vector2.RIGHT
 
 # seconds of forgiveness after falling
 @export var coyote_time := 0.15
@@ -44,6 +45,11 @@ func _physics_process(delta: float) -> void:
 
 		# While aiming, stop player movement
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	elif Input.is_action_just_pressed("attack"):
+		if shoot_direction == Vector2.RIGHT or shoot_direction == Vector2.LEFT:
+			shoot("attack_horizontal")
+		elif shoot_direction == Vector2.UP:
+			shoot("attack_up")
 	else:
 		# Coyote time logic
 		if is_on_floor():
@@ -59,24 +65,28 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_up") and (is_on_floor() or coyote_timer > 0):
 			velocity.y = JUMP_VELOCITY
 			coyote_timer = 0 # prevent double jumping during coyote
+			shoot_direction = Vector2.UP
 
 		# Handle Crouch
 		if Input.is_action_just_pressed("ui_down"):
 			velocity.y = -(JUMP_VELOCITY/2)
+			shoot_direction = Vector2.DOWN
 
 		# Handle jump
 		if Input.is_action_just_pressed("ui_up") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
+			shoot_direction = Vector2.UP
 
 		# Handle crouch
 		if Input.is_action_just_pressed("ui_down"):
 			velocity.y = -(JUMP_VELOCITY/2)
+			shoot_direction = Vector2.DOWN
 
 		if directionX:
 			velocity.x = directionX * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		
 		# Animation Handling
 		if velocity.y > 350:
 			fall_animation()
@@ -84,13 +94,25 @@ func _physics_process(delta: float) -> void:
 			if directionX > 0:
 				animatedSprite.animation = "run"
 				animatedSprite.flip_h = false
+				shoot_direction = Vector2.RIGHT
+				if Input.is_action_just_pressed("attack"):
+					shoot("attack_horizontal")
 			elif directionX < 0:
 				animatedSprite.animation = "run"
 				animatedSprite.flip_h = true
+				shoot_direction = Vector2.LEFT
+				if Input.is_action_just_pressed("attack"):
+					shoot("attack_horizontal")
 			elif directionY < 0:
 				animatedSprite.animation = "jump"
+				if Input.is_action_just_pressed("attack"):
+					shoot_direction = Vector2.UP
+					shoot("attack_up")
 			elif directionY > 0:
 				animatedSprite.animation = "crouch"
+				if Input.is_action_just_pressed("attack"):
+					shoot_direction = Vector2.DOWN
+					shoot("attack_down")
 			else:
 				animatedSprite.animation = "idle"
 
