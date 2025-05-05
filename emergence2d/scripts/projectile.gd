@@ -29,6 +29,5 @@ func setup(new_direction: Vector2) -> void:
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
 
-
 func _on_body_entered(body: Node) -> void:
 	print ("Something got hit")
