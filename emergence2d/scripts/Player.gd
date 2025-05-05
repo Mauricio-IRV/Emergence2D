@@ -9,6 +9,7 @@ var direct_shoot_dir = Vector2.RIGHT
 @export var coyote_time := 0.15
 var coyote_timer := 0.0
 
+@export var health := 100
 const SPEED := 300.0
 const JUMP_VELOCITY := -300.0
 
@@ -127,6 +128,9 @@ func shoot(dir) -> void:
 
 func fall_animation():
 	animatedSprite.animation = "crouch"
+
+func die():
+	reset_scene()
 
 func reset_scene():
 	get_tree().reload_current_scene()

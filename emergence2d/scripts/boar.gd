@@ -3,7 +3,6 @@ extends CharacterBody2D
 @onready var player = $"../../Player"
 @onready var boar = $AnimatedSprite2D
 @onready var floorRaycast = $FloorRaycast
-
 const SPEED = 40.0
 const PATROL_RANGE = [-80, 80]
 
@@ -29,11 +28,12 @@ func add_movement() -> void:
 		chase = false
 		boar.animation = "walk"
 	
-	# Handle Rebound (Player Collision)
+	# Handle Player Collision (Rebound & Damage)
 	if position.distance_to(player.position) <= 28 and direction == -1 or position.distance_to(player.position) <= 33 and direction == 1:
 		# Reduced initial force for smoother rebound
 		velocity = Vector2(-direction * 400, -100)
 		rebounding = true
+		player.health -= 10
 	# Handle Chase
 	elif y_dist < 20 and position.distance_to(player.position) < 250 or chase == true:
 		# Determine where to chase
@@ -64,6 +64,9 @@ func add_movement() -> void:
 		boar.animation = "walk"
 		boar.flip_h = false
 
+func die() -> void:
+	boar.animation = "die"
+
 func _physics_process(delta: float) -> void:
 	add_gravity(delta)
 	
@@ -75,4 +78,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		add_movement()
 		
-	move_and_slide()
+	if player.health <= 0:
+		player.die()
+	else:
+		move_and_slide()

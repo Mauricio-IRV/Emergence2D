@@ -1150,7 +1150,7 @@ metadata/_edit_lock_ = true
 position = Vector2(998, -125)
 
 [node name="Bee" parent="Enemies" instance=ExtResource("7_u5sy4")]
-position = Vector2(1476, -172)
+position = Vector2(1497, -179)
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 visibility_layer = 3
