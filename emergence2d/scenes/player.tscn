@@ -1,13 +1,14 @@
-[gd_scene load_steps=38 format=3 uid="uid://c1lrmvblgxa2l"]
+[gd_scene load_steps=39 format=3 uid="uid://c1lrmvblgxa2l"]
 
 [ext_resource type="Texture2D" uid="uid://4pvn02dk7s6e" path="res://assets/Wizard Pack/Fall.png" id="1_dqkch"]
-[ext_resource type="Script" uid="uid://d4aie10gcap2n" path="res://scripts/player.gd" id="1_fjrip"]
+[ext_resource type="Script" uid="uid://d4aie10gcap2n" path="res://scripts/Player.gd" id="1_fjrip"]
 [ext_resource type="Texture2D" uid="uid://btpa7v5vw1mbn" path="res://assets/Wizard Pack/Idle.png" id="1_ry4om"]
 [ext_resource type="Texture2D" uid="uid://5q4luof0dgv8" path="res://assets/Wizard Pack/Attack1.png" id="1_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://dn47etnbp7ihr" path="res://assets/Wizard Pack/Run.png" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://c2wc3amk6xvip" path="res://assets/Wizard Pack/Death.png" id="2_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://dw6ic4eweqmau" path="res://scenes/projectile.tscn" id="2_smehm"]
 [ext_resource type="Texture2D" uid="uid://l0e7iratuj8c" path="res://assets/Wizard Pack/Jump.png" id="3_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://gutj0x23a2ja" path="res://scenes/heart.tscn" id="9_ur7pv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
 atlas = ExtResource("2_qlg0r")
@@ -276,3 +277,81 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, -12)
 shape = SubResource("CapsuleShape2D_qlg0r")
+
+[node name="health_bar" type="CanvasLayer" parent="."]
+offset = Vector2(19.9994, 19.9994)
+transform = Transform2D(1, 0, 0, 1, 19.9994, 19.9994)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="health_bar"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="heart" type="TextureRect" parent="health_bar/HBoxContainer"]
+custom_minimum_size = Vector2(30, -0.000205)
+layout_mode = 2
+
+[node name="heart2" parent="health_bar/HBoxContainer/heart" instance=ExtResource("9_ur7pv")]
+scale = Vector2(2.00052, 2.00052)
+
+[node name="heart10" type="TextureRect" parent="health_bar/HBoxContainer"]
+custom_minimum_size = Vector2(30, -0.000205)
+layout_mode = 2
+
+[node name="heart2" parent="health_bar/HBoxContainer/heart10" instance=ExtResource("9_ur7pv")]
+scale = Vector2(2.00052, 2.00052)
+
+[node name="heart9" type="TextureRect" parent="health_bar/HBoxContainer"]
+custom_minimum_size = Vector2(30, -0.000205)
+layout_mode = 2
+
+[node name="heart2" parent="health_bar/HBoxContainer/heart9" instance=ExtResource("9_ur7pv")]
+scale = Vector2(2.00052, 2.00052)
+
+[node name="heart8" type="TextureRect" parent="health_bar/HBoxContainer"]
+custom_minimum_size = Vector2(30, -0.000205)
+layout_mode = 2
+
+[node name="heart2" parent="health_bar/HBoxContainer/heart8" instance=ExtResource("9_ur7pv")]
+scale = Vector2(2.00052, 2.00052)
+
+[node name="heart7" type="TextureRect" parent="health_bar/HBoxContainer"]
+custom_minimum_size = Vector2(30, -0.000205)
+layout_mode = 2
+
+[node name="heart2" parent="health_bar/HBoxContainer/heart7" instance=ExtResource("9_ur7pv")]
+scale = Vector2(2.00052, 2.00052)
+
+[node name="heart6" type="TextureRect" parent="health_bar/HBoxContainer"]
+custom_minimum_size = Vector2(30, -0.000205)
+layout_mode = 2
+
+[node name="heart2" parent="health_bar/HBoxContainer/heart6" instance=ExtResource("9_ur7pv")]
+scale = Vector2(2.00052, 2.00052)
+
+[node name="heart5" type="TextureRect" parent="health_bar/HBoxContainer"]
+custom_minimum_size = Vector2(30, -0.000205)
+layout_mode = 2
+
+[node name="heart2" parent="health_bar/HBoxContainer/heart5" instance=ExtResource("9_ur7pv")]
+scale = Vector2(2.00052, 2.00052)
+
+[node name="heart4" type="TextureRect" parent="health_bar/HBoxContainer"]
+custom_minimum_size = Vector2(30, -0.000205)
+layout_mode = 2
+
+[node name="heart2" parent="health_bar/HBoxContainer/heart4" instance=ExtResource("9_ur7pv")]
+scale = Vector2(2.00052, 2.00052)
+
+[node name="heart3" type="TextureRect" parent="health_bar/HBoxContainer"]
+custom_minimum_size = Vector2(30, -0.000205)
+layout_mode = 2
+
+[node name="heart2" parent="health_bar/HBoxContainer/heart3" instance=ExtResource("9_ur7pv")]
+scale = Vector2(2.00052, 2.00052)
+
+[node name="heart2" type="TextureRect" parent="health_bar/HBoxContainer"]
+custom_minimum_size = Vector2(12.9999, -0.000205)
+layout_mode = 2
+
+[node name="heart2" parent="health_bar/HBoxContainer/heart2" instance=ExtResource("9_ur7pv")]
+scale = Vector2(2.00052, 2.00052)

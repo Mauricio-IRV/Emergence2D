@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var projectile_scene: PackedScene 
 var shoot_direction: Vector2 = Vector2.ZERO
 var direct_shoot_dir = Vector2.RIGHT
+var alive = true
 
 # seconds of forgiveness after falling
 @export var coyote_time := 0.15
@@ -13,6 +14,38 @@ var coyote_timer := 0.0
 const SPEED := 300.0
 const JUMP_VELOCITY := -300.0
 
+var hearts_list: Array[TextureRect]
+var health_level = 10
+
+func _ready() -> void:
+	var hearts_parent = $health_bar/HBoxContainer
+	for child in hearts_parent.get_children():
+		hearts_list.append(child)
+
+func take_damage ():
+	if health_level > 0:
+		health_level -= 1
+		print ("Damn.... They got you alright!!!")
+		update_heart_display()
+func update_heart_display ():
+	for i in range (hearts_list.size()):
+		hearts_list[i].visible = i < health_level
+	if health_level == 1:
+		hearts_list[0].get_child(0).play ("beating")
+	elif health_level > 1:
+		hearts_list[0].get_child(0).play("idle")
+	
+	if health <= 0:
+		alive = false
+		print ("Murdered... Defeated")
+		
+func heal():
+	health_level = 10
+	update_heart_display()
+	print ("somehow, you managed to heal yourself!!! Good for you dude")
+		
+		
+		
 func _physics_process(delta: float) -> void:
 	var directionX := Input.get_axis("ui_left", "ui_right")
 	var directionY := Input.get_axis("ui_up", "ui_down")
@@ -134,3 +167,4 @@ func die():
 
 func reset_scene():
 	get_tree().reload_current_scene()
+	
