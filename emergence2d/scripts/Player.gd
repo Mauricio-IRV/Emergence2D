@@ -47,6 +47,8 @@ func heal():
 		
 		
 func _physics_process(delta: float) -> void:
+	print_stack()
+	print("should print the stack now")
 	var directionX := Input.get_axis("ui_left", "ui_right")
 	var directionY := Input.get_axis("ui_up", "ui_down")
 	
