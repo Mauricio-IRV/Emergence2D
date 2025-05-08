@@ -4,7 +4,7 @@
 - Run Left <A>
 - Run Right <D>
 - Jump <W>
-- Crouching <S>
+- Crouching \<S>
 - Shooting:
     <Shoot (in the direction being faced): 
         Spacebar
