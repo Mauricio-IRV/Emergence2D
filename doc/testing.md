@@ -1,9 +1,9 @@
 ## Manual Tests
 
 ### Left Orientation:
-- Run Left <A>
-- Run Right <D>
-- Jump <W>
+- Run Left \<A>
+- Run Right \<D>
+- Jump \<W>
 - Crouching \<S>
 - Shooting:
     <Shoot (in the direction being faced): 
@@ -23,10 +23,10 @@
     >
 
 ### Right Orientation:
-- Run Left <Left-Arrow>
-- Run Right <Right-Arrow>
-- Jump <Up-Arrow>
-- Crouching <Down-Arrow>
+- Run Left \<Left-Arrow>
+- Run Right \<Right-Arrow>
+- Jump \<Up-Arrow>
+- Crouching \<Down-Arrow>
 - Shooting:
     <Shoot (in the direction being faced): 
         Spacebar
