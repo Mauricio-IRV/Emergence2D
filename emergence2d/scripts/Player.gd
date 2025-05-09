@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var animatedSprite := $AnimatedSprite2D
 @export var projectile_scene: PackedScene 
+
 var shoot_direction: Vector2 = Vector2.ZERO
 var direct_shoot_dir = Vector2.RIGHT
 var alive = true
@@ -27,6 +28,7 @@ func take_damage ():
 		health_level -= 1
 		print ("Damn.... They got you alright!!!")
 		update_heart_display()
+
 func update_heart_display ():
 	for i in range (hearts_list.size()):
 		hearts_list[i].visible = i < health_level
@@ -43,9 +45,7 @@ func heal():
 	health_level = 10
 	update_heart_display()
 	print ("somehow, you managed to heal yourself!!! Good for you dude")
-		
-		
-		
+
 func _physics_process(delta: float) -> void:
 	var directionX := Input.get_axis("ui_left", "ui_right")
 	var directionY := Input.get_axis("ui_up", "ui_down")
@@ -166,6 +166,7 @@ func fall_animation():
 
 func die():
 	reset_scene()
+	return true
 
 func reset_scene():
 	get_tree().reload_current_scene()
