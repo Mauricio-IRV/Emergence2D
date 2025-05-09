@@ -47,8 +47,6 @@ func heal():
 		
 		
 func _physics_process(delta: float) -> void:
-	print_stack()
-	print("should print the stack now")
 	var directionX := Input.get_axis("ui_left", "ui_right")
 	var directionY := Input.get_axis("ui_up", "ui_down")
 	
@@ -82,6 +80,7 @@ func _physics_process(delta: float) -> void:
 		# While aiming, stop player movement
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	elif Input.is_action_just_pressed("attack"):
+		
 		if shoot_direction == Vector2.RIGHT or shoot_direction == Vector2.LEFT:
 			shoot("attack_horizontal")
 		elif shoot_direction == Vector2.UP:
@@ -151,6 +150,7 @@ func _physics_process(delta: float) -> void:
 					shoot("attack_down")
 			else:
 				animatedSprite.animation = "idle"
+				print_stack()
 
 	move_and_slide()
 

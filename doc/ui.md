@@ -1,0 +1,49 @@
+By the end of week 8, we hope for the user to be able to:
+- Run the game in Godot 
+- Have a home screen with the options:
+    - a Play button which starts the game 
+    - a Settings button which opens the settings 
+    - an About button which opens the About screen
+- Have settings screen with:
+    - Game instructions 
+    - Key bindings 
+    - Sound
+- Have an About screen which describes how the game is played and details acknowledgements as well as the licence
+- Be able to play the game by performing the following actions:
+    - Use key bindings to move the wizard, shoot and overcome other obstacles 
+    - Find power-ups and pick-ups to help refuel during the game  
+    - Die when they run out of hearts, could not overcome the obstacles, or ran out of time
+- Toggle an inventory with the following information:
+    - Hearts corresponding to how many more trials they have. Max = 10 
+    - Golds corresponding to how many recoveries they can make 
+    - Regeneration: potentiality to get more hearts but over a span of time
+- The user should be able to get through 3 levels of the game, each with its unique obstacles:
+    - LEVEL1, with the obstacles:
+        - Theme:
+            - Outdors
+            - Trees
+            - rocks 
+        - Enemies:
+            - Boars
+            - Bees
+    - LEVEL2, with obstacles:
+        - Theme:
+            - Mountains
+            - Cave
+            - Rocks
+            - Treasure Box
+        - Enemies:
+            - Bees
+            - Snails
+            - Flying Eyes
+    - LEVEL3, with obstacles:
+        - Theme:
+            - Broken down building
+            - Rocks
+            - Construction material
+            - Treasure
+        - Enemies
+            - Snails
+            - Mushroom
+            - Flying Eyes
+
