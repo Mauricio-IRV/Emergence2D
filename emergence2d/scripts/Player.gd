@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animatedSprite := $AnimatedSprite2D
 @export var projectile_scene: PackedScene 
-
+@export var inv:Inv
 var shoot_direction: Vector2 = Vector2.ZERO
 var direct_shoot_dir = Vector2.RIGHT
 var alive = true

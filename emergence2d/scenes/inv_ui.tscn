@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://gryjrvtuayv7"]
+
+[ext_resource type="Script" uid="uid://bjulk0am6w7fq" path="res://scripts/inv_ui.gd" id="1_wefod"]
+[ext_resource type="Texture2D" uid="uid://chogtvgm34410" path="res://assets/Inventory/inventory-background.png" id="2_2tqa5"]
+[ext_resource type="PackedScene" uid="uid://cixcxfsm3y5ho" path="res://scenes/inv_ui_slot.tscn" id="3_tmo6b"]
+
+[node name="invUI" type="Control"]
+custom_minimum_size = Vector2(15.9995, 58.9998)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 6.0
+offset_right = 16.0
+offset_bottom = 65.0
+script = ExtResource("1_wefod")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 16.0
+offset_bottom = 58.0
+texture = ExtResource("2_2tqa5")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -53.0
+offset_right = 8.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="invUI_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_tmo6b")]
+layout_mode = 2
+
+[node name="invUI_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_tmo6b")]
+layout_mode = 2
+
+[node name="invUI_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_tmo6b")]
+layout_mode = 2
