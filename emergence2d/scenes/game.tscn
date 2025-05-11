@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bcqjy0o5qa2f0"]
+[gd_scene load_steps=17 format=4 uid="uid://bcqjy0o5qa2f0"]
 
 [ext_resource type="Texture2D" uid="uid://ckvex56ypli3u" path="res://assets/Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png" id="1_gee14"]
 [ext_resource type="Texture2D" uid="uid://jk4e4rqafjjp" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_iywne"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://boo3m1ym430lh" path="res://scripts/water.gd" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://mvbbc4otdpxx" path="res://scenes/bee.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dud7y8geq8078" path="res://scenes/boar.tscn" id="8_gee14"]
+[ext_resource type="Script" uid="uid://vgfrwjxxelq4" path="res://scenes/bee.gd" id="8_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://c6r0vfuw2pxk8" path="res://scenes/coin_ui.tscn" id="9_vtaks"]
 [ext_resource type="PackedScene" uid="uid://7uv01kmpr5ny" path="res://scenes/coin.tscn" id="10_kvpfn"]
 
@@ -1151,8 +1152,9 @@ metadata/_edit_lock_ = true
 [node name="Boar" parent="Enemies" instance=ExtResource("8_gee14")]
 position = Vector2(998, -125)
 
-[node name="Bee" parent="Enemies" instance=ExtResource("7_u5sy4")]
+[node name="Bee" parent="Enemies" groups=["bee"] instance=ExtResource("7_u5sy4")]
 position = Vector2(1497, -179)
+script = ExtResource("8_kvpfn")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 visibility_layer = 3

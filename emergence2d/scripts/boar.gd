@@ -3,8 +3,15 @@ extends CharacterBody2D
 @onready var player = $"../../Player"
 @onready var boar = $AnimatedSprite2D
 @onready var floorRaycast = $FloorRaycast
+
 const SPEED = 40.0
 const PATROL_RANGE = [-80, 80]
+
+const Y_CHASE_RANGE = 20
+const X_CHASE_RANGE = 250
+
+const L_COLLISION_RANGE = 28
+const R_COLLISION_RANGE = 33
 
 var chase = false
 var rebounding = false
@@ -23,36 +30,31 @@ func add_movement() -> void:
 	velocity.x = SPEED * direction
 	var y_dist = abs(player.position.y - position.y)
 	
-	# Handle case where not on same platform... so don't chase
-	if y_dist > 20:
+	var in_chase_range = (
+		y_dist < Y_CHASE_RANGE and 
+		position.distance_to(player.position) < X_CHASE_RANGE
+	)
+
+	# Stop chasing if player is vertically too far or no ground below
+	if not in_chase_range or not floorRaycast.is_colliding():
 		chase = false
 		boar.animation = "walk"
-	
+
 	# Handle Player Collision (Rebound & Damage)
-	if position.distance_to(player.position) <= 28 and direction == -1 or position.distance_to(player.position) <= 33 and direction == 1:
-		# Reduced initial force for smoother rebound
+	if position.distance_to(player.position) <= L_COLLISION_RANGE and direction == -1 or position.distance_to(player.position) <= R_COLLISION_RANGE and direction == 1:
 		velocity = Vector2(-direction * 400, -100)
 		rebounding = true
 		player.health -= 10
+
 	# Handle Chase
-	elif y_dist < 20 and position.distance_to(player.position) < 250 or chase == true:
-		# Determine where to chase
+	elif chase or in_chase_range:
+		chase = true
 		var dist_apart = player.position.x - position.x
 		direction = sign(dist_apart)
-		
-		# Determine if to continue the chase
-		if chase == true and not floorRaycast.is_colliding():
-			chase = false
-			direction = sign(init_pos.x - position.x)
-			velocity.x = SPEED * direction
-			boar.animation = "walk"
-			boar.flip_h = direction == 1
-		else:
-		# Begin the chase
-			chase = true
-			velocity.x = 4 * SPEED * direction
-			boar.animation = "chase"
-			boar.flip_h = direction == 1
+		velocity.x = 4 * SPEED * direction
+		boar.animation = "chase"
+		boar.flip_h = direction == 1
+
 	# Handle Patrol
 	elif position.x < (init_pos.x + PATROL_RANGE[0]):
 		direction = 1
