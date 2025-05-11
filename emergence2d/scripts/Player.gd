@@ -1,8 +1,10 @@
+class_name Player 
 extends CharacterBody2D
-
+ 
 @onready var animatedSprite := $AnimatedSprite2D
 @export var projectile_scene: PackedScene 
 @export var inv:Inv
+
 var shoot_direction: Vector2 = Vector2.ZERO
 var direct_shoot_dir = Vector2.RIGHT
 var alive = true
@@ -170,4 +172,7 @@ func die():
 
 func reset_scene():
 	get_tree().reload_current_scene()
+
+func collect (item):
+	inv.inster(item)
 	

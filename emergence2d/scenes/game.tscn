@@ -1,13 +1,15 @@
-[gd_scene load_steps=14 format=4 uid="uid://bcqjy0o5qa2f0"]
+[gd_scene load_steps=16 format=4 uid="uid://bcqjy0o5qa2f0"]
 
 [ext_resource type="Texture2D" uid="uid://ckvex56ypli3u" path="res://assets/Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png" id="1_gee14"]
 [ext_resource type="Texture2D" uid="uid://jk4e4rqafjjp" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://c1lrmvblgxa2l" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://c0wjk8r0q6ewk" path="res://scripts/parallax_background.gd" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://s5c8upvswutt" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="3_lnu2h"]
-[ext_resource type="Script" path="res://scenes/water.gd" id="6_p57ef"]
+[ext_resource type="Script" uid="uid://boo3m1ym430lh" path="res://scripts/water.gd" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://mvbbc4otdpxx" path="res://scenes/bee.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dud7y8geq8078" path="res://scenes/boar.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://c6r0vfuw2pxk8" path="res://scenes/coin_ui.tscn" id="9_vtaks"]
+[ext_resource type="PackedScene" uid="uid://7uv01kmpr5ny" path="res://scenes/coin.tscn" id="10_kvpfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tnpc"]
 texture = ExtResource("1_gee14")
@@ -1161,5 +1163,16 @@ position = Vector2(10, -16)
 scale = Vector2(1, 2.12572)
 zoom = Vector2(4, 4)
 metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="coin_ui" parent="CanvasLayer" instance=ExtResource("9_vtaks")]
+visible = false
+
+[node name="coin" parent="." instance=ExtResource("10_kvpfn")]
+position = Vector2(1221, -17)
+
+[node name="coin2" parent="." instance=ExtResource("10_kvpfn")]
+position = Vector2(1821, -346)
 
 [connection signal="body_entered" from="Hazards" to="Hazards/WorldEnd" method="_on_hazards_body_entered"]

@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="Inv" load_steps=4 format=3 uid="uid://ce2ujc7t33lhg"]
+[gd_resource type="Resource" script_class="Inv" load_steps=3 format=3 uid="uid://ce2ujc7t33lhg"]
 
-[ext_resource type="Script" uid="uid://culbldaklphe0" path="res://scripts/inventory_item.gd" id="1_qwo5t"]
-[ext_resource type="Resource" uid="uid://b7f0alcuj80bx" path="res://items/coin.tres" id="2_ctm7n"]
+[ext_resource type="Script" uid="uid://bx32dpkav1e86" path="res://scripts/inv_slot.gd" id="2_54sa2"]
 [ext_resource type="Script" uid="uid://ck5o03cgd7ia3" path="res://scripts/inventory.gd" id="3_ovm33"]
 
 [resource]
 script = ExtResource("3_ovm33")
-items = Array[ExtResource("1_qwo5t")]([ExtResource("2_ctm7n"), null, ExtResource("2_ctm7n")])
+slots = Array[ExtResource("2_54sa2")]([null, null, null])
 metadata/_custom_type_script = "uid://ck5o03cgd7ia3"
