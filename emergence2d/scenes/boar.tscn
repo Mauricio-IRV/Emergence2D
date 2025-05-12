@@ -173,6 +173,7 @@ animations = [{
 radius = 1.1
 
 [node name="Boar" type="CharacterBody2D" groups=["boar"]]
+z_index = 1
 script = ExtResource("1_mn0bm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://boo3m1ym430lh" path="res://scripts/water.gd" id="6_5xqnf"]
 [ext_resource type="PackedScene" uid="uid://dud7y8geq8078" path="res://scenes/boar.tscn" id="7_una4e"]
 [ext_resource type="PackedScene" uid="uid://mvbbc4otdpxx" path="res://scenes/bee.tscn" id="8_ema3p"]
-[ext_resource type="Script" uid="uid://vgfrwjxxelq4" path="res://scenes/bee.gd" id="9_8uepa"]
+[ext_resource type="Script" uid="uid://vgfrwjxxelq4" path="res://scripts/bee.gd" id="9_8uepa"]
 [ext_resource type="PackedScene" uid="uid://c1lrmvblgxa2l" path="res://scenes/player.tscn" id="10_q7pjq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wo48x"]
