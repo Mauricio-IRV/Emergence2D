@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://7uv01kmpr5ny"]
+[gd_scene load_steps=7 format=3 uid="uid://7uv01kmpr5ny"]
 
 [ext_resource type="Script" uid="uid://2lcccl5njeup" path="res://scripts/coin.gd" id="1_i64fm"]
 [ext_resource type="Texture2D" uid="uid://d21d4h4nojtd0" path="res://assets/Inventory/coin-frame-1.png" id="1_rwqht"]
+[ext_resource type="Resource" uid="uid://b7f0alcuj80bx" path="res://items/coin.tres" id="2_11l1o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i64fm"]
 atlas = ExtResource("1_rwqht")
@@ -23,7 +24,7 @@ radius = 15.0333
 
 [node name="coin" type="Node2D"]
 script = ExtResource("1_i64fm")
-value = null
+item = ExtResource("2_11l1o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.300518, 0.300518)

@@ -44,7 +44,7 @@ func add_movement() -> void:
 	if position.distance_to(player.position) <= L_COLLISION_RANGE and direction == -1 or position.distance_to(player.position) <= R_COLLISION_RANGE and direction == 1:
 		velocity = Vector2(-direction * 400, -100)
 		rebounding = true
-		player.health -= 10
+		player.take_damage()
 
 	# Handle Chase
 	elif chase or in_chase_range:

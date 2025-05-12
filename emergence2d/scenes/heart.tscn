@@ -66,6 +66,6 @@ animations = [{
 
 [node name="heart" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_0fb81")
-animation = &"idle"
+animation = &"beating"
 autoplay = "idle"
-frame_progress = 0.0293407
+frame_progress = 0.515463

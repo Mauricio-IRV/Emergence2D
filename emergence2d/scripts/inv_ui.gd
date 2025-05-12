@@ -4,7 +4,8 @@ var is_open = false
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 
 func _ready ():
-	#update_slots()
+	inv.update.connect(update_slots)
+	update_slots()
 	close()
 func _process (delta):
 	if Input.is_action_just_pressed ('toggle_inventory'):
@@ -19,6 +20,6 @@ func open():
 	visible = true 
 	is_open = true
 
-#func update_slots():
-	#for i in range (min(inv.items.size(), slots.size())):
-		#slots[i].update(inv.items[i])
+func update_slots():
+	for i in range (min(inv.slots.size(), slots.size())):
+		slots[i].update(inv.slots[i])

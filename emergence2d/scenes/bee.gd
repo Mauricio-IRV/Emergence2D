@@ -45,8 +45,9 @@ func add_movement() -> void:
 	# Handle collision with player
 	if position.distance_to(player.position) <= L_COLLISION_RANGE and direction == -1 or position.distance_to(player.position) <= R_COLLISION_RANGE and direction == 1:		
 		velocity = Vector2(-direction * 400, -100)
+		print ("from the bee", player.health)
 		rebounding = true
-		player.health -= 10
+		player.take_damage()
 
 	# Handle chasing
 	elif chase:

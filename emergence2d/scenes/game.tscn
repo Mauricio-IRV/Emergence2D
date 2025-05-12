@@ -1175,6 +1175,6 @@ visible = false
 position = Vector2(1221, -17)
 
 [node name="coin2" parent="." instance=ExtResource("10_kvpfn")]
-position = Vector2(1821, -346)
+position = Vector2(1731, -160)
 
 [connection signal="body_entered" from="Hazards" to="Hazards/WorldEnd" method="_on_hazards_body_entered"]
