@@ -150,7 +150,7 @@ func _physics_process(delta: float) -> void:
 					shoot("attack_down")
 			else:
 				animatedSprite.animation = "idle"
-				print_stack()
+				#print_stack()
 
 	move_and_slide()
 

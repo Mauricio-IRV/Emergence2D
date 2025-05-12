@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @export var value: int = 1
 @export var item: invItem
 var player = null
