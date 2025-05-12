@@ -1,19 +1,18 @@
-[gd_scene load_steps=16 format=4 uid="uid://b6k2ikxih1wsx"]
+[gd_scene load_steps=15 format=4 uid="uid://dbnvnt7vpjcuf"]
 
-[ext_resource type="Texture2D" uid="uid://ckvex56ypli3u" path="res://assets/Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png" id="1_hey2k"]
-[ext_resource type="Texture2D" uid="uid://jk4e4rqafjjp" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_172wr"]
-[ext_resource type="Texture2D" uid="uid://bybfugxgvj4mv" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="2_b4j7a"]
-[ext_resource type="Script" uid="uid://c0wjk8r0q6ewk" path="res://scripts/parallax_background.gd" id="3_g2hoc"]
-[ext_resource type="Texture2D" uid="uid://s5c8upvswutt" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="4_fldb1"]
-[ext_resource type="PackedScene" uid="uid://c1lrmvblgxa2l" path="res://scenes/player.tscn" id="6_wo48x"]
-[ext_resource type="Script" uid="uid://boo3m1ym430lh" path="res://scripts/water.gd" id="7_y0kc7"]
-[ext_resource type="PackedScene" uid="uid://dud7y8geq8078" path="res://scenes/boar.tscn" id="8_ne2mo"]
-[ext_resource type="PackedScene" uid="uid://mvbbc4otdpxx" path="res://scenes/bee.tscn" id="9_que50"]
-[ext_resource type="Script" uid="uid://vgfrwjxxelq4" path="res://scenes/bee.gd" id="10_hey2k"]
-[ext_resource type="Script" uid="uid://d16aoamdkq3fm" path="res://scenes/next_level.gd" id="11_hey2k"]
+[ext_resource type="Texture2D" uid="uid://ckvex56ypli3u" path="res://assets/Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png" id="1_vcx5n"]
+[ext_resource type="Texture2D" uid="uid://bybfugxgvj4mv" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="2_56dhn"]
+[ext_resource type="Texture2D" uid="uid://jk4e4rqafjjp" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="3_ax3dk"]
+[ext_resource type="Script" uid="uid://c0wjk8r0q6ewk" path="res://scripts/parallax_background.gd" id="4_q2dsb"]
+[ext_resource type="Texture2D" uid="uid://s5c8upvswutt" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="5_p3r0x"]
+[ext_resource type="Script" uid="uid://boo3m1ym430lh" path="res://scripts/water.gd" id="6_5xqnf"]
+[ext_resource type="PackedScene" uid="uid://dud7y8geq8078" path="res://scenes/boar.tscn" id="7_una4e"]
+[ext_resource type="PackedScene" uid="uid://mvbbc4otdpxx" path="res://scenes/bee.tscn" id="8_ema3p"]
+[ext_resource type="Script" uid="uid://vgfrwjxxelq4" path="res://scenes/bee.gd" id="9_8uepa"]
+[ext_resource type="PackedScene" uid="uid://c1lrmvblgxa2l" path="res://scenes/player.tscn" id="10_q7pjq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wo48x"]
-texture = ExtResource("1_hey2k")
+texture = ExtResource("1_vcx5n")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -363,7 +362,7 @@ texture = ExtResource("1_hey2k")
 24:18/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0kc7"]
-texture = ExtResource("2_b4j7a")
+texture = ExtResource("2_56dhn")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -731,7 +730,7 @@ texture = ExtResource("2_b4j7a")
 24:22/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ne2mo"]
-texture = ExtResource("2_172wr")
+texture = ExtResource("3_ax3dk")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.14286, 3.42857, 8, 3.42857, 8, 8, -3.42857, 8)
 0:0/0/physics_layer_0/polygon_0/one_way = true
@@ -1446,7 +1445,7 @@ sources/2 = SubResource("TileSetAtlasSource_ne2mo")
 sources/0 = SubResource("TileSetAtlasSource_wo48x")
 sources/1 = SubResource("TileSetAtlasSource_y0kc7")
 
-[node name="Level_2" type="Node2D"]
+[node name="Level_3" type="Node2D"]
 
 [node name="TileMap" type="Node" parent="."]
 
@@ -1470,7 +1469,7 @@ metadata/_edit_lock_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2(-0.000205, -0.000205)
-script = ExtResource("3_g2hoc")
+script = ExtResource("4_q2dsb")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(6.99979, -437)
@@ -1481,7 +1480,7 @@ metadata/_edit_lock_ = true
 [node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-7.00005, 20)
 scale = Vector2(2.15, 2.35294)
-texture = ExtResource("4_fldb1")
+texture = ExtResource("5_p3r0x")
 centered = false
 offset = Vector2(-0.000205, -0.000205)
 metadata/_edit_lock_ = true
@@ -1492,31 +1491,24 @@ metadata/_edit_lock_ = true
 [node name="WorldEnd" type="CollisionPolygon2D" parent="Hazards"]
 position = Vector2(0, 9)
 scale = Vector2(1.00548, 1.03442)
-polygon = PackedVector2Array(-986.595, 377.99, 2986.63, 377.99, 2989.62, 6.76708, -40.9127, 5.29346, -41.7711, -409.892, -986.593, -409.892)
-script = ExtResource("7_y0kc7")
+polygon = PackedVector2Array(-986.595, 377.99, 4972.75, 377.99, 4972.75, 6.76708, 510.204, 4.83363, 510.204, -411.825, -986.593, -409.892)
+script = ExtResource("6_5xqnf")
 metadata/_edit_lock_ = true
-
-[node name="Doorway" type="Area2D" parent="."]
-
-[node name="NextLevel" type="CollisionPolygon2D" parent="Doorway"]
-position = Vector2(343, -81)
-polygon = PackedVector2Array(2485, -46, 2509, -46, 2509, -2, 2485, -2)
-script = ExtResource("11_hey2k")
 
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2(0, -27)
 metadata/_edit_lock_ = true
 
-[node name="Boar" parent="Enemies" instance=ExtResource("8_ne2mo")]
+[node name="Boar" parent="Enemies" instance=ExtResource("7_una4e")]
 position = Vector2(228, 1)
 
-[node name="Bee" parent="Enemies" groups=["bee"] instance=ExtResource("9_que50")]
+[node name="Bee" parent="Enemies" groups=["bee"] instance=ExtResource("8_ema3p")]
 position = Vector2(365, -9)
-script = ExtResource("10_hey2k")
+script = ExtResource("9_8uepa")
 
-[node name="Player" parent="." instance=ExtResource("6_wo48x")]
+[node name="Player" parent="." instance=ExtResource("10_q7pjq")]
 visibility_layer = 3
-position = Vector2(34, -14)
+position = Vector2(545, -192)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(10, -16)
@@ -1525,4 +1517,3 @@ zoom = Vector2(4, 4)
 metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Hazards" to="Hazards/WorldEnd" method="_on_hazards_body_entered"]
-[connection signal="body_entered" from="Doorway" to="Doorway/NextLevel" method="_on_doorway_body_entered"]
