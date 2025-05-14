@@ -21,6 +21,7 @@ func setup(new_direction: Vector2) -> void:
 		sprite.offset = Vector2(-100, 0)
 	elif direction == Vector2.UP:
 		sprite.rotation_degrees = -90
+		sprite.offset = Vector2(25, -5)
 	elif direction == Vector2.DOWN:
 		sprite.rotation_degrees = 90
 
