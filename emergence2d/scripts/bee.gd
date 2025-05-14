@@ -47,7 +47,8 @@ func add_movement() -> void:
 		velocity = Vector2(-direction * 400, -100)
 		print ("from the bee", player.health)
 		rebounding = true
-		player.take_damage()
+		player.take_damage(10)
+		player.update_heart_display()
 
 	# Handle chasing
 	elif chase:
