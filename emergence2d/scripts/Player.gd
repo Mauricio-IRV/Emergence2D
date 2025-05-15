@@ -8,6 +8,9 @@ extends CharacterBody2D
 var shoot_direction: Vector2 = Vector2.ZERO
 var direct_shoot_dir = Vector2.RIGHT
 var alive = true
+var can_shoot = true
+var shoot_cooldown = 0.0025 
+var time_since_last_shot = 0.0
 
 # seconds of forgiveness after falling
 @export var coyote_time := 0.15
@@ -64,6 +67,7 @@ func heal():
 	print ("somehow, you managed to heal yourself!!! Good for you dude")
 
 func _physics_process(delta: float) -> void:
+	time_since_last_shot += delta
 	var directionX := Input.get_axis("ui_left", "ui_right")
 	var directionY := Input.get_axis("ui_up", "ui_down")
 	
@@ -81,27 +85,58 @@ func _physics_process(delta: float) -> void:
 		# Handle shooting
 		if Input.is_action_just_pressed("attack"):
 			if shoot_direction == Vector2.RIGHT:
-				animatedSprite.flip_h  = false
-				shoot("attack_horizontal")
-				shoot_direction = Vector2.ZERO 
+				if can_shoot:
+					animatedSprite.flip_h  = false
+					shoot("attack_horizontal")
+					shoot_direction = Vector2.ZERO 
+					can_shoot = false
+					time_since_last_shot = 0.0
+				else:
+					if time_since_last_shot >= shoot_cooldown:
+						can_shoot = true
+						
 			elif shoot_direction == Vector2.UP:
-				animatedSprite.flip_h = false
-				shoot("attack_up")
-				shoot_direction = Vector2.ZERO
+				if can_shoot: 
+					animatedSprite.flip_h = false
+					shoot("attack_up")
+					shoot_direction = Vector2.ZERO
+					can_shoot = false
+					time_since_last_shot = 0.0
+				else:
+					if time_since_last_shot >= shoot_cooldown:
+						can_shoot = true 
 			elif shoot_direction == Vector2.LEFT:
-				animatedSprite.flip_h = true
-				shoot("attack_horizontal")
-				shoot_direction = Vector2.ZERO
+				if can_shoot:
+					animatedSprite.flip_h = true
+					shoot("attack_horizontal")
+					shoot_direction = Vector2.ZERO
+					time_since_last_shot = 0.0 
+					can_shoot =  false
+				else:
+					if time_since_last_shot >= shoot_cooldown:
+						can_shoot = true
 				
 
 		# While aiming, stop player movement
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	elif Input.is_action_just_pressed("attack"):
-		
 		if shoot_direction == Vector2.RIGHT or shoot_direction == Vector2.LEFT:
-			shoot("attack_horizontal")
+			if can_shoot:
+				print ("Must be a success shooting horizontal")
+				shoot("attack_horizontal")
+				time_since_last_shot = 0.0
+				can_shoot = false 
+			else:
+				if time_since_last_shot >= shoot_cooldown:
+					can_shoot = true
 		elif shoot_direction == Vector2.UP:
-			shoot("attack_up")
+			if can_shoot:
+				shoot("attack_up")
+				time_since_last_shot = 0.0
+				can_shoot = false
+			else:
+				if time_since_last_shot >= shoot_cooldown:
+					can_shoot = true
 	else:
 		# Coyote time logic
 		if is_on_floor():

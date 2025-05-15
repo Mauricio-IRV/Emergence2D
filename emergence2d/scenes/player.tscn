@@ -353,7 +353,7 @@ layout_mode = 2
 scale = Vector2(2.00052, 2.00052)
 
 [node name="invUI" parent="." instance=ExtResource("11_3v2ag")]
-offset_left = -12.0
-offset_top = -90.0
-offset_right = 4.0
-offset_bottom = -31.0002
+offset_left = 19.0
+offset_top = -128.0
+offset_right = 35.0
+offset_bottom = -69.0002
