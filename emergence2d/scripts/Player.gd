@@ -18,7 +18,7 @@ var coyote_timer := 0.0
 
 @export var health := 100
 const SPEED := 300.0
-const JUMP_VELOCITY := -300.0
+const JUMP_VELOCITY := -315.0
 
 var hearts_list: Array[TextureRect]
 
@@ -152,7 +152,6 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_up") and (is_on_floor() or coyote_timer > 0):
 			velocity.y = JUMP_VELOCITY
 			coyote_timer = 0 # prevent double jumping during coyote
-			shoot_direction = Vector2.UP
 
 		# Handle Crouch
 		if Input.is_action_just_pressed("ui_down"):
@@ -162,7 +161,6 @@ func _physics_process(delta: float) -> void:
 		# Handle jump
 		if Input.is_action_just_pressed("ui_up") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
-			shoot_direction = Vector2.UP
 
 		# Handle crouch
 		if Input.is_action_just_pressed("ui_down"):
