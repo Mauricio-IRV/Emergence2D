@@ -16,10 +16,10 @@ script = ExtResource("1_wefod")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = -40.0
+offset_left = -41.0
 offset_top = 3.0
-offset_right = 15.0
-offset_bottom = 57.0
+offset_right = 16.0
+offset_bottom = 55.0
 texture = ExtResource("2_2tqa5")
 patch_margin_left = 6
 patch_margin_top = 6
