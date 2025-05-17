@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cammhmimdd84m"]
+
+[ext_resource type="Script" uid="uid://co2fr4a6twuoe" path="res://scenes/cooldown.gd" id="1_x5g68"]
+
+[node name="CooldownBar" type="ProgressBar"]
+offset_top = -22.0
+offset_right = 4.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("1_x5g68")
