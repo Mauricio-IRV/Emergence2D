@@ -1,35 +1,31 @@
 class_name Player 
 extends CharacterBody2D
  
+# Scenes
 @onready var animatedSprite := $AnimatedSprite2D
 @export var projectile_scene: PackedScene 
 @export var inv:Inv
 
+# Projectile Variables
 var shoot_direction: Vector2 = Vector2.ZERO
+var last_valid_shoot_direction: Vector2 = Vector2.RIGHT
 var direct_shoot_dir = Vector2.RIGHT
-var alive = true
-var can_shoot = true
-var shoot_cooldown = 0.0025 
-var time_since_last_shot = 0.0
+var projectile_offset_y = 0
+@onready var cooldown = $CooldownBar
 
-# seconds of forgiveness after falling
+# Seconds of forgiveness after falling
 @export var coyote_time := 0.15
 var coyote_timer := 0.0
 
+# Player properties
 @export var health := 100
+var hearts_list: Array[TextureRect]
 const SPEED := 300.0
 const JUMP_VELOCITY := -315.0
 
-var hearts_list: Array[TextureRect]
-
-func _ready() -> void:
-	init_hearts()
-
-func take_damage(amount):
-	if health > 0:
-		health -= amount
-		if health < 0: health = 0
-
+'''
+Handle Health
+'''
 func init_hearts():
 	var hearts_parent = get_node_or_null("health_bar/HBoxContainer")
 	if hearts_parent == null:
@@ -39,7 +35,6 @@ func init_hearts():
 	hearts_list.clear()
 	for child in hearts_parent.get_children():
 		hearts_list.append(child)
-
 
 func update_heart_display():
 	if hearts_list.is_empty():
@@ -58,7 +53,6 @@ func update_heart_display():
 				heart_anim.play("idle")
 
 	if health <= 0:
-		alive = false
 		print("Murdered... Defeated")
 
 func heal():
@@ -66,153 +60,118 @@ func heal():
 	update_heart_display()
 	print ("somehow, you managed to heal yourself!!! Good for you dude")
 
-func _physics_process(delta: float) -> void:
-	time_since_last_shot += delta
-	var directionX := Input.get_axis("ui_left", "ui_right")
-	var directionY := Input.get_axis("ui_up", "ui_down")
-	
-	# FIRST: Handle aiming input (Shift + WASD)
-	if Input.is_action_pressed("shoot_ready_up") or Input.is_action_pressed("shoot_ready_down") or Input.is_action_pressed("shoot_ready_left") or Input.is_action_pressed("shoot_ready_right"):
-		if Input.is_action_pressed("shoot_ready_up"):
-			shoot_direction = Vector2.UP
-		elif Input.is_action_pressed("shoot_ready_down"):
-			shoot_direction = Vector2.DOWN
-		elif Input.is_action_pressed("shoot_ready_left"):
-			shoot_direction = Vector2.LEFT 
-		elif Input.is_action_pressed("shoot_ready_right"):
-			shoot_direction = Vector2.RIGHT
-		
-		# Handle shooting
-		if Input.is_action_just_pressed("attack"):
-			if shoot_direction == Vector2.RIGHT:
-				if can_shoot:
-					animatedSprite.flip_h  = false
-					shoot("attack_horizontal")
-					shoot_direction = Vector2.ZERO 
-					can_shoot = false
-					time_since_last_shot = 0.0
-				else:
-					if time_since_last_shot >= shoot_cooldown:
-						can_shoot = true
-						
-			elif shoot_direction == Vector2.UP:
-				if can_shoot: 
-					animatedSprite.flip_h = false
-					shoot("attack_up")
-					shoot_direction = Vector2.ZERO
-					can_shoot = false
-					time_since_last_shot = 0.0
-				else:
-					if time_since_last_shot >= shoot_cooldown:
-						can_shoot = true 
-			elif shoot_direction == Vector2.LEFT:
-				if can_shoot:
-					animatedSprite.flip_h = true
-					shoot("attack_horizontal")
-					shoot_direction = Vector2.ZERO
-					time_since_last_shot = 0.0 
-					can_shoot =  false
-				else:
-					if time_since_last_shot >= shoot_cooldown:
-						can_shoot = true
-				
+func take_damage(amount):
+	if health > 0:
+		health -= amount
+		if health < 0: health = 0
 
-		# While aiming, stop player movement
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	elif Input.is_action_just_pressed("attack"):
-		if shoot_direction == Vector2.RIGHT or shoot_direction == Vector2.LEFT:
-			if can_shoot:
-				print ("Must be a success shooting horizontal")
-				shoot("attack_horizontal")
-				time_since_last_shot = 0.0
-				can_shoot = false 
-			else:
-				if time_since_last_shot >= shoot_cooldown:
-					can_shoot = true
-		elif shoot_direction == Vector2.UP:
-			if can_shoot:
-				shoot("attack_up")
-				time_since_last_shot = 0.0
-				can_shoot = false
-			else:
-				if time_since_last_shot >= shoot_cooldown:
-					can_shoot = true
+'''
+Handle Projectiles
+'''
+func is_aiming() -> bool:
+	return Input.is_action_pressed("shoot_ready_up") or Input.is_action_pressed("shoot_ready_down") or Input.is_action_pressed("shoot_ready_left") or Input.is_action_pressed("shoot_ready_right")
+
+func handle_aiming_input():
+	projectile_offset_y = 15
+	if Input.is_action_pressed("shoot_ready_up"):
+		shoot_direction = Vector2.UP
+	elif Input.is_action_pressed("shoot_ready_down"):
+		shoot_direction = Vector2.DOWN
+	elif Input.is_action_pressed("shoot_ready_left"):
+		shoot_direction = Vector2.LEFT
+	elif Input.is_action_pressed("shoot_ready_right"):
+		shoot_direction = Vector2.RIGHT
 	else:
-		# Coyote time logic
-		if is_on_floor():
-			coyote_timer = coyote_time
-		else:
-			coyote_timer = max(coyote_timer - delta, 0)
+		shoot_direction = Vector2.ZERO
 
-		# Add gravity
-		if not is_on_floor():
-			velocity += get_gravity() * delta
+	if shoot_direction != Vector2.ZERO:
+		last_valid_shoot_direction = shoot_direction
 
-		# Handle jump
-		if Input.is_action_just_pressed("ui_up") and (is_on_floor() or coyote_timer > 0):
-			velocity.y = JUMP_VELOCITY
-			coyote_timer = 0 # prevent double jumping during coyote
+func handle_attack():
+	if not cooldown.is_cooldown_over(): return
+	else: cooldown.start_cooldown()
+	var actual_shoot_direction: Vector2
+	
+	if shoot_direction != Vector2.ZERO:
+		actual_shoot_direction = shoot_direction
+	else:
+		actual_shoot_direction = last_valid_shoot_direction
 
-		# Handle Crouch
-		if Input.is_action_just_pressed("ui_down"):
-			velocity.y = -(JUMP_VELOCITY/2)
-			shoot_direction = Vector2.DOWN
+	match actual_shoot_direction:
+		Vector2.RIGHT:
+			animatedSprite.flip_h = false
+			shoot("attack_horizontal", actual_shoot_direction)
+		Vector2.LEFT:
+			animatedSprite.flip_h = true
+			shoot("attack_horizontal", actual_shoot_direction)
+		Vector2.UP:
+			shoot("attack_up", actual_shoot_direction)
+		Vector2.DOWN:
+			shoot("crouch", actual_shoot_direction)
 
-		# Handle jump
-		if Input.is_action_just_pressed("ui_up") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
-
-		# Handle crouch
-		if Input.is_action_just_pressed("ui_down"):
-			velocity.y = -(JUMP_VELOCITY/2)
-			shoot_direction = Vector2.DOWN
-
-		if directionX:
-			velocity.x = directionX * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-		# Animation Handling
-		if velocity.y > 350:
-			fall_animation()
-		else:
-			if directionX > 0:
-				animatedSprite.animation = "run"
-				animatedSprite.flip_h = false
-				shoot_direction = Vector2.RIGHT
-				if Input.is_action_just_pressed("attack"):
-					shoot("attack_horizontal")
-			elif directionX < 0:
-				animatedSprite.animation = "run"
-				animatedSprite.flip_h = true
-				shoot_direction = Vector2.LEFT
-				if Input.is_action_just_pressed("attack"):
-					shoot("attack_horizontal")
-			elif directionY < 0:
-				animatedSprite.animation = "jump"
-				if Input.is_action_just_pressed("attack"):
-					shoot_direction = Vector2.UP
-					shoot("attack_up")
-			elif directionY > 0:
-				animatedSprite.animation = "crouch"
-				if Input.is_action_just_pressed("attack"):
-					shoot_direction = Vector2.DOWN
-					shoot("attack_down")
-			else:
-				animatedSprite.animation = "idle"
-				#print_stack()
-
-	move_and_slide()
-
-func shoot(dir) -> void:
-	animatedSprite.animation = dir
+func shoot(animation_name: String, direction: Vector2) -> void:
 	var projectile = projectile_scene.instantiate()
 	get_tree().current_scene.add_child(projectile)
-	projectile.global_position = global_position
-	projectile.setup(shoot_direction)
 
-func fall_animation():
-	animatedSprite.animation = "crouch"
+	projectile.global_position = global_position
+	projectile.setup(direction, projectile_offset_y)
+	animatedSprite.animation = animation_name
+	projectile_offset_y = 0
+
+'''
+Handle Movement
+'''
+func handle_animation(directionX: float, directionY: float):
+	if velocity.y > 350:
+		animatedSprite.animation = "crouch"
+	elif directionX > 0:
+		animatedSprite.animation = "run"
+		animatedSprite.flip_h = false
+		shoot_direction = Vector2.RIGHT
+	elif directionX < 0:
+		animatedSprite.animation = "run"
+		animatedSprite.flip_h = true
+		shoot_direction = Vector2.LEFT
+	elif directionY < 0:
+		animatedSprite.animation = "jump"
+	elif directionY > 0:
+		animatedSprite.animation = "crouch"
+	else:
+		animatedSprite.animation = "idle"
+	
+	move_and_slide()
+
+func handle_movement_and_animation(directionX: float, directionY: float, delta: float):
+	if is_on_floor():
+		coyote_timer = coyote_time
+	else:
+		coyote_timer = max(coyote_timer - delta, 0)
+
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	if Input.is_action_just_pressed("ui_up") and (is_on_floor() or coyote_timer > 0):
+		velocity.y = JUMP_VELOCITY
+		coyote_timer = 0
+	elif Input.is_action_just_pressed("ui_down"):
+		velocity.y = -(JUMP_VELOCITY / 2)
+
+	if directionX:
+		velocity.x = directionX * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	handle_animation(directionX, directionY)
+
+'''
+Main
+'''
+func _ready() -> void:
+	init_hearts()
+	cooldown.init_cooldown()
+
+func collect (item):
+	inv.insert(item)
 
 func die():
 	reset_scene()
@@ -220,5 +179,18 @@ func die():
 func reset_scene():
 	get_tree().reload_current_scene()
 
-func collect (item):
-	inv.insert(item)
+func _physics_process(delta: float) -> void:
+	var directionX := Input.get_axis("ui_left", "ui_right")
+	var directionY := Input.get_axis("ui_up", "ui_down")
+
+	if is_aiming():
+		handle_aiming_input()
+		if Input.is_action_just_pressed("attack"):
+			handle_attack()
+		projectile_offset_y = 0
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	elif Input.is_action_just_pressed("attack"):
+		pass
+		handle_attack()
+	else:
+		handle_movement_and_animation(directionX, directionY, delta)

@@ -7,39 +7,49 @@ extends Area2D
 
 var direction: Vector2 = Vector2.RIGHT
 
-func setup(new_direction: Vector2) -> void:
+# Handle projectile offsets
+func setup(new_direction: Vector2, y_offset: float = 0) -> void:
 	direction = new_direction
-	# Reset flips
 	sprite.flip_h = false
 	sprite.flip_v = false
 	sprite.rotation_degrees = 0
 
-	# Set flips or rotation
-	if direction == Vector2.RIGHT:
-		sprite.offset = Vector2(0, -2)
-		collision.position = Vector2(0, -2)
-	elif direction == Vector2.LEFT:
-		sprite.flip_h = true
-		sprite.offset = Vector2(-100, -2)
-		collision.position = Vector2(-100, -2)
-	elif direction == Vector2.UP:
-		
-		sprite.rotation_degrees = -90
-		sprite.offset = Vector2(15, -15)
-		collision.position = Vector2(15, -32)
-	elif direction == Vector2.DOWN:
-		sprite.rotation_degrees = 90
+	match direction:
+		Vector2.RIGHT:
+			sprite.offset = Vector2(0, -15)
+			collision.position = Vector2(0, -15)
+		Vector2.LEFT:
+			sprite.flip_h = true
+			sprite.offset = Vector2(-100, -15)
+			collision.position = Vector2(-100, -15)
+		Vector2.UP:
+			sprite.rotation_degrees = -90
+			sprite.offset = Vector2(15, -32)
+			collision.position = Vector2(15, -32)
+		Vector2.DOWN:
+			sprite.rotation_degrees = 90
+			sprite.offset = Vector2(15, -40)
+			collision.position = Vector2(15, -40)
 
-func _physics_process(delta: float) -> void:
-	position += direction * speed * delta
+	# Apply vertical offset for when sprite is standing
+	sprite.offset.y += y_offset
+	collision.position.y += y_offset
 
+# Handle projectile collisions
 func _on_body_entered(body: Node) -> void:
 	if body.name == "Player":
 		pass
 	elif body.is_in_group("boar"):
+		call_deferred("queue_free")
 		body.call_deferred("queue_free")
 	elif body.is_in_group("bee"):
+		call_deferred("queue_free")
 		body.call_deferred("queue_free")
 	else:
-		call_deferred("queue_free")
-		print("shot at", body)
+		pass
+
+'''
+Main
+'''
+func _physics_process(delta: float) -> void:
+	position += direction * speed * delta
