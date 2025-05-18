@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cammhmimdd84m"]
 
-[ext_resource type="Script" uid="uid://co2fr4a6twuoe" path="res://scenes/cooldown.gd" id="1_x5g68"]
+[ext_resource type="Script" uid="uid://co2fr4a6twuoe" path="res://scripts/cooldown.gd" id="1_x5g68"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5g68"]
 bg_color = Color(1, 0.8, 0.4, 0.862745)
