@@ -20,8 +20,8 @@ var coyote_timer := 0.0
 # Player properties
 @onready var damaged_audio = $DamagedAudio
 @export var health := 100
-const JUMP_VELOCITY := -315.0
-const SPEED := 300.0
+const JUMP_VELOCITY := -308.0
+const SPEED := 280.0
 var hearts_list: Array[TextureRect]
 var taking_dmg = false
 

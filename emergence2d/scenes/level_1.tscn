@@ -1456,6 +1456,24 @@ size = Vector2(3024, 16)
 
 [node name="Level_1" type="Node2D"]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(-0.000205, -0.000205)
+script = ExtResource("3_7gny6")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(6.99979, -437)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1000, 0)
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-7.00005, 20)
+scale = Vector2(2.15, 2.35294)
+texture = ExtResource("4_2aecg")
+centered = false
+offset = Vector2(-0.000205, -0.000205)
+metadata/_edit_lock_ = true
+
 [node name="TileMap" type="Node" parent="."]
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="TileMap"]
@@ -1476,23 +1494,18 @@ tile_map_data = PackedByteArray("AACoAPr/AgACAAAAAACqAPn/AgACAAAAAACrAPn/AgACAAA
 tile_set = SubResource("TileSet_u5sy4")
 metadata/_edit_lock_ = true
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_offset = Vector2(-0.000205, -0.000205)
-script = ExtResource("3_7gny6")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(6.99979, -437)
-motion_scale = Vector2(0.5, 0.5)
-motion_mirroring = Vector2(1000, 0)
-metadata/_edit_lock_ = true
+[node name="coin_ui" parent="CanvasLayer" instance=ExtResource("10_isj1j")]
+visible = false
 
-[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-7.00005, 20)
-scale = Vector2(2.15, 2.35294)
-texture = ExtResource("4_2aecg")
-centered = false
-offset = Vector2(-0.000205, -0.000205)
-metadata/_edit_lock_ = true
+[node name="Collectibles" type="Node" parent="."]
+
+[node name="Coin" parent="Collectibles" instance=ExtResource("11_so66j")]
+position = Vector2(1221, -17)
+
+[node name="Coin_2" parent="Collectibles" instance=ExtResource("11_so66j")]
+position = Vector2(1731, -160)
 
 [node name="StaticBodies2D" type="StaticBody2D" parent="."]
 metadata/_edit_lock_ = true
@@ -1543,17 +1556,6 @@ position = Vector2(10, -16)
 scale = Vector2(1, 2.12572)
 zoom = Vector2(4, 4)
 metadata/_edit_lock_ = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="coin_ui" parent="CanvasLayer" instance=ExtResource("10_isj1j")]
-visible = false
-
-[node name="coin" parent="." instance=ExtResource("11_so66j")]
-position = Vector2(1221, -17)
-
-[node name="coin2" parent="." instance=ExtResource("11_so66j")]
-position = Vector2(1731, -160)
 
 [connection signal="body_entered" from="Doorway" to="Doorway/NextLevel" method="_on_doorway_body_entered"]
 [connection signal="body_entered" from="Hazards" to="Hazards/WorldEnd" method="_on_hazards_body_entered"]
