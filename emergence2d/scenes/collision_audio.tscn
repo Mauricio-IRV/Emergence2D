@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bghmtpkv0skjb"]
+
+[ext_resource type="AudioStream" uid="uid://8dhiahsjqlud" path="res://audio/fire-magic.mp3" id="1_c7lrc"]
+
+[node name="ProjectileCollision" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_c7lrc")
+volume_db = 4.0

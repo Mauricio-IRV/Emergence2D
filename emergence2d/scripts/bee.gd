@@ -9,8 +9,8 @@ const PATROL_RANGE = [-40, 40]
 const Y_CHASE_RANGE = 20
 const X_CHASE_RANGE = 100
 
-const L_COLLISION_RANGE = 16
-const R_COLLISION_RANGE = 25
+const L_COLLISION_RANGE = 22
+const R_COLLISION_RANGE = 22
 
 const GRAVITY = 500.0
 const MAX_FALL_SPEED = 300.0
@@ -47,7 +47,7 @@ func add_movement() -> void:
 		velocity = Vector2(-direction * 400, -100)
 		print ("from the bee", player.health)
 		rebounding = true
-		player.take_damage(10)
+		player.take_damage(20)
 		player.update_heart_display()
 
 	# Handle chasing

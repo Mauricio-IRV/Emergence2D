@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw6ic4eweqmau"]
+[gd_scene load_steps=5 format=3 uid="uid://dw6ic4eweqmau"]
 
 [ext_resource type="Texture2D" uid="uid://ckuxobg8xx84v" path="res://assets/Fireball/FB00_nyknck/FB004.png" id="1_c8fcr"]
 [ext_resource type="Script" uid="uid://bl7go4nh76547" path="res://scripts/projectile.gd" id="1_q3m7n"]
+[ext_resource type="AudioStream" uid="uid://dolfq1y7s08kp" path="res://audio/fireball-whoosh-5.mp3" id="3_softn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3m7n"]
 size = Vector2(17.5, 13)
@@ -20,5 +21,10 @@ offset = Vector2(-0.000205, -0.000205)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(40, 0)
 shape = SubResource("RectangleShape2D_q3m7n")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_softn")
+autoplay = true
+attenuation = 3.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

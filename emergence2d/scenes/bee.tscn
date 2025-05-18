@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://mvbbc4otdpxx"]
+[gd_scene load_steps=19 format=3 uid="uid://mvbbc4otdpxx"]
 
 [ext_resource type="Texture2D" uid="uid://dyhdvqsscsh3g" path="res://assets/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Fly/Fly-Sheet.png" id="1_1q2x0"]
 [ext_resource type="Texture2D" uid="uid://c6f7eqaw1kn8t" path="res://assets/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Attack/Attack-Sheet.png" id="1_ogg2i"]
 [ext_resource type="Texture2D" uid="uid://dpodjpqd713bi" path="res://assets/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Hit/Hit-Sheet.png" id="3_qf6nb"]
+[ext_resource type="AudioStream" uid="uid://blseetcvefsuy" path="res://audio/angel-wings-flying.mp3" id="4_qf6nb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkr4b"]
 atlas = ExtResource("1_ogg2i")
@@ -120,3 +121,10 @@ frame_progress = 0.000973357
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xfac4")
+
+[node name="FlyAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qf6nb")
+volume_db = 5.0
+pitch_scale = 1.55
+autoplay = true
+max_distance = 500.0

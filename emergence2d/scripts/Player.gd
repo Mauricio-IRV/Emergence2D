@@ -18,10 +18,12 @@ var projectile_offset_y = 0
 var coyote_timer := 0.0
 
 # Player properties
+@onready var damaged_audio = $DamagedAudio
 @export var health := 100
-var hearts_list: Array[TextureRect]
-const SPEED := 300.0
 const JUMP_VELOCITY := -315.0
+const SPEED := 300.0
+var hearts_list: Array[TextureRect]
+var taking_dmg = false
 
 '''
 Handle Health
@@ -61,9 +63,12 @@ func heal():
 	print ("somehow, you managed to heal yourself!!! Good for you dude")
 
 func take_damage(amount):
-	if health > 0:
-		health -= amount
-		if health < 0: health = 0
+	taking_dmg = true
+	if health > 0: health -= amount
+	damaged_audio.play()
+	await get_tree().create_timer(0.3).timeout
+	if (health-amount) <= 0: await get_tree().create_timer(0.4).timeout
+	taking_dmg = false
 
 '''
 Handle Projectiles
@@ -123,7 +128,9 @@ Handle Movement
 '''
 func handle_animation(directionX: float, directionY: float):
 	if velocity.y > 350:
-		animatedSprite.animation = "crouch"
+		animatedSprite.animation = "attack"
+	elif taking_dmg:
+		animatedSprite.animation = "death"
 	elif directionX > 0:
 		animatedSprite.animation = "run"
 		animatedSprite.flip_h = false
@@ -136,7 +143,7 @@ func handle_animation(directionX: float, directionY: float):
 		animatedSprite.animation = "jump"
 	elif directionY > 0:
 		animatedSprite.animation = "crouch"
-	else:
+	elif directionX == 0:
 		animatedSprite.animation = "idle"
 	
 	move_and_slide()
@@ -150,10 +157,10 @@ func handle_movement_and_animation(directionX: float, directionY: float, delta: 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if Input.is_action_just_pressed("ui_up") and (is_on_floor() or coyote_timer > 0):
+	if Input.is_action_just_pressed("move_up") and (is_on_floor() or coyote_timer > 0):
 		velocity.y = JUMP_VELOCITY
 		coyote_timer = 0
-	elif Input.is_action_just_pressed("ui_down"):
+	elif Input.is_action_just_pressed("move_down"):
 		velocity.y = -(JUMP_VELOCITY / 2)
 
 	if directionX:
@@ -180,8 +187,8 @@ func reset_scene():
 	get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
-	var directionX := Input.get_axis("ui_left", "ui_right")
-	var directionY := Input.get_axis("ui_up", "ui_down")
+	var directionX := Input.get_axis("move_left", "move_right")
+	var directionY := Input.get_axis("move_up", "move_down")
 
 	if is_aiming():
 		handle_aiming_input()

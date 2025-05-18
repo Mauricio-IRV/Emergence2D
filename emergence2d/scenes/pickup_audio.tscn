@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdhk6ty3rhjij"]
+
+[ext_resource type="AudioStream" uid="uid://dn5mmlmx0dhcn" path="res://audio/game-bonus-2.mp3" id="1_56fo4"]
+
+[node name="PickupAudio" type="AudioStreamPlayer"]
+stream = ExtResource("1_56fo4")
+volume_db = -15.0

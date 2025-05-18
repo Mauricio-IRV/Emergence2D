@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://dud7y8geq8078"]
+[gd_scene load_steps=29 format=3 uid="uid://dud7y8geq8078"]
 
 [ext_resource type="Script" uid="uid://duiw7s1n01usq" path="res://scripts/boar.gd" id="1_mn0bm"]
 [ext_resource type="Texture2D" uid="uid://tsfnma3edlwj" path="res://assets/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png" id="2_4ea8c"]
 [ext_resource type="Texture2D" uid="uid://c5eb4fxexdcct" path="res://assets/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black.png" id="2_r6548"]
 [ext_resource type="Texture2D" uid="uid://bobferboktmco" path="res://assets/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Walk/Walk-Base-SheetBlack.png" id="3_r6548"]
 [ext_resource type="Texture2D" uid="uid://cgofngqfm2j7h" path="res://assets/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Hit-Vanish/Hit-Sheet-Black.png" id="4_r6548"]
+[ext_resource type="AudioStream" uid="uid://b0xui6fvcpmwu" path="res://audio/snow-step-3.mp3" id="6_156ks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_156ks"]
 atlas = ExtResource("2_r6548")
@@ -185,6 +186,12 @@ autoplay = "default"
 position = Vector2(-2, 3)
 scale = Vector2(10, 10)
 shape = SubResource("CircleShape2D_gee14")
+
+[node name="WalkAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_156ks")
+volume_db = 10.0
+autoplay = true
+max_distance = 500.0
 
 [node name="FloorRaycast" type="RayCast2D" parent="."]
 position = Vector2(-1, 3)
