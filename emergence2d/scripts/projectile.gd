@@ -40,11 +40,13 @@ func _on_body_entered(body: Node) -> void:
 	if body.name == "Player":
 		pass
 	elif body.is_in_group("boar"):
-		call_deferred("queue_free")
+		CollisionAudio.play()
 		body.call_deferred("queue_free")
+		call_deferred("queue_free")
 	elif body.is_in_group("bee"):
-		call_deferred("queue_free")
+		CollisionAudio.play()
 		body.call_deferred("queue_free")
+		call_deferred("queue_free")
 	else:
 		pass
 
