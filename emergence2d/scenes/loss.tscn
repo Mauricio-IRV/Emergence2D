@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwes1nth3x1gg"]
+
+[ext_resource type="Script" uid="uid://bulnfq8x0vp5v" path="res://scripts/replay_button.gd" id="1_bqrrl"]
+[ext_resource type="Script" uid="uid://dxyo4yroar078" path="res://scripts/quit.gd" id="2_clwuq"]
+
+[sub_resource type="FontFile" id="FontFile_066xx"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
+cache/0/1000/0/ascent = 0.0
+cache/0/1000/0/descent = 0.0
+cache/0/1000/0/underline_position = 0.0
+cache/0/1000/0/underline_thickness = 0.0
+cache/0/1000/0/scale = 1.0
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/500/0/ascent = 0.0
+cache/0/500/0/descent = 0.0
+cache/0/500/0/underline_position = 0.0
+cache/0/500/0/underline_thickness = 0.0
+cache/0/500/0/scale = 1.0
+cache/0/200/0/ascent = 0.0
+cache/0/200/0/descent = 0.0
+cache/0/200/0/underline_position = 0.0
+cache/0/200/0/underline_thickness = 0.0
+cache/0/200/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_bqrrl"]
+paragraph_spacing = 2.99935
+font = SubResource("FontFile_066xx")
+font_size = 200
+font_color = Color(0.843137, 0.933333, 0.054902, 1)
+outline_size = 30
+outline_color = Color(0.369265, 0.359442, 0.103727, 1)
+
+[node name="loss" type="Control"]
+layout_mode = 3
+anchor_right = 0.079
+anchor_bottom = 0.046
+offset_right = -197.0
+offset_bottom = 280.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -1171.0
+offset_top = -1144.0
+offset_right = 5004.0
+offset_bottom = 2926.0
+color = Color(0.392157, 0.501961, 0.560784, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 285.0
+offset_right = 2591.0
+offset_bottom = 680.0
+text = "You lost the game
+"
+label_settings = SubResource("LabelSettings_bqrrl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart" type="Button" parent="."]
+custom_minimum_size = Vector2(99.9993, 99.9993)
+layout_mode = 0
+offset_left = 2222.0
+offset_top = 740.0
+offset_right = 2608.0
+offset_bottom = 894.0
+text = "Restart game
+"
+script = ExtResource("1_bqrrl")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 736.0
+offset_right = 769.0
+offset_bottom = 891.0
+text = "Quit game
+"
+script = ExtResource("2_clwuq")

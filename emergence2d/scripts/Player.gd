@@ -184,7 +184,8 @@ func die():
 	reset_scene()
 
 func reset_scene():
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/loss.tscn")
+	#get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
 	var directionX := Input.get_axis("move_left", "move_right")
