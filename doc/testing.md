@@ -29,7 +29,7 @@ Folder that contains our tests is the test folder: https://github.com/Mauricio-I
 
 ## Manual Tests
 
-### Left Orientation:
+### Player Mechanics:
 - Run Left \<A>
 - Run Right \<D>
 - Jump \<W>
@@ -39,55 +39,17 @@ Folder that contains our tests is the test folder: https://github.com/Mauricio-I
         Spacebar
     >
     <Shoot-Left-Crouch: 
-        Shift+A+Return,
         Shift+A+Spacebar
     >
     <Shoot-Right-Crouch: 
-        Shift+D+Return, 
         Shift+D+Spacebar
     >
     <Shoot-Up: 
-        Shift+W+Return,
         Shift+W+Spacebar
     >
-
-### Right Orientation:
-- Run Left \<Left-Arrow>
-- Run Right \<Right-Arrow>
-- Jump \<Up-Arrow>
-- Crouching \<Down-Arrow>
-- Shooting:
-    <Shoot (in the direction being faced): 
-        Spacebar
+    <Shoot-Down: 
+        Shift+S+Spacebar
     >
-    <Shoot-Left-Crouch: 
-        Shift+Left-Arrow+Spacebar
-    >
-    <Shoot-Right-Crouch: 
-        Shift+Right-Arrow+Spacebar
-    >
-    <Shoot-Up: 
-        Shift+Up-Arrow+Spacebar
-    >
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Automated Tests
 

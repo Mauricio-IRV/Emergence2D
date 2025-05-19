@@ -1,6 +1,6 @@
 # Emergence2D
 
-Description: This is our plan for the game we named `Emergence2D`, a 2D platformer shooting game. This game is set in a world that builds itself as you move through it starting from an empty white void, emerging into a fully developed world. The environment is being built in as the user develops and clears new levels, whilst simultaneously coming across new creatures / enemies which become stronger through the new installments of world fragments in the unfinished reality.
+Description: A 2D platformer shooting game. You spawn in by an ocean, and go on to explore the terrain which has enemies consisting of boars, bees, snails, bats, and so on. There are checkpoints referred to as levels throughout your adventure. Additionally, as you explore you can collect potions, coins, and other resources.
 
 ## Learning Goals
 
