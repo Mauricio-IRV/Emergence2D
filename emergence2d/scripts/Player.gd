@@ -1,5 +1,5 @@
-class_name Player 
 extends CharacterBody2D
+class_name Player 
  
 # Scenes
 @onready var animatedSprite := $AnimatedSprite2D
@@ -66,7 +66,7 @@ func take_damage(amount):
 	taking_dmg = true
 	if health > 0: health -= amount
 	damaged_audio.play()
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.15).timeout
 	if (health-amount) <= 0: await get_tree().create_timer(0.4).timeout
 	taking_dmg = false
 

@@ -20,8 +20,8 @@ func setup(new_direction: Vector2, y_offset: float = 0) -> void:
 			collision.position = Vector2(0, -15)
 		Vector2.LEFT:
 			sprite.flip_h = true
-			sprite.offset = Vector2(-100, -15)
-			collision.position = Vector2(-100, -15)
+			sprite.offset = Vector2(-32, -15)
+			collision.position = Vector2(-32, -15)
 		Vector2.UP:
 			sprite.rotation_degrees = -90
 			sprite.offset = Vector2(15, -32)

@@ -6,7 +6,7 @@ extends CharacterBody2D
 const SPEED = 100.0
 const PATROL_RANGE = [-40, 40]
 
-const Y_CHASE_RANGE = 20
+const Y_CHASE_RANGE = 50
 const X_CHASE_RANGE = 100
 
 const L_COLLISION_RANGE = 22
@@ -28,45 +28,46 @@ func _ready() -> void:
 func add_movement() -> void:
 	velocity.x = SPEED * direction
 	var y_dist = abs(player.position.y - position.y)
-	
-	# Determine if player is in chase range
+
 	var in_chase_range = (
 		y_dist < Y_CHASE_RANGE and 
 		position.distance_to(player.position) <= X_CHASE_RANGE
 	)
 
-	# Update chase flag
 	if in_chase_range:
 		chase = true
 	elif not in_chase_range and not rebounding:
-		# Only stop chasing if truly out of range and not rebounding
 		chase = false
 
-	# Handle collision with player
 	if position.distance_to(player.position) <= L_COLLISION_RANGE and direction == -1 or position.distance_to(player.position) <= R_COLLISION_RANGE and direction == 1:		
 		velocity = Vector2(-direction * 400, -100)
-		print ("from the bee", player.health)
+		print("from the bee", player.health)
 		rebounding = true
 		player.take_damage(20)
 		player.update_heart_display()
 
-	# Handle chasing
 	elif chase:
 		var dist_apart = player.position.x - position.x
 		direction = sign(dist_apart)
 		bee.animation = "attack"
+		bee.flip_h = direction == 1
+		var vertical_offset = clamp(player.position.y - position.y, -Y_CHASE_RANGE, Y_CHASE_RANGE)
+		velocity.y = vertical_offset * 2
 
-	# Handle patrol
 	elif position.x < (init_pos.x + PATROL_RANGE[0]):
 		direction = 1
 		bee.animation = "default"
 		bee.flip_h = true
+		velocity.y = (init_pos.y - position.y) * 2
 
 	elif position.x > (init_pos.x + PATROL_RANGE[1]):
 		direction = -1
 		bee.animation = "default"
 		bee.flip_h = false
+		velocity.y = (init_pos.y - position.y) * 2
 
+	else:
+		velocity.y = (init_pos.y - position.y) * 2
 func die() -> void:
 	bee.animation = "hit"
 

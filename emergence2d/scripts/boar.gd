@@ -5,10 +5,11 @@ extends CharacterBody2D
 @onready var floor_raycast = $FloorRaycast
 @onready var walk_audio = $WalkAudio
 
+@export var PATROL_RANGE = [-80, 80]
+@export var direction = 1
 const SPEED = 40.0
-const PATROL_RANGE = [-80, 80]
 
-const Y_CHASE_RANGE = 20
+const Y_CHASE_RANGE = 25
 const X_CHASE_RANGE = 250
 
 const L_COLLISION_RANGE = 32
@@ -17,7 +18,6 @@ const R_COLLISION_RANGE = 28
 var chase = false
 var rebounding = false
 var health = 1
-var direction = 1
 var init_pos = Vector2()
 
 func _ready() -> void:
@@ -30,6 +30,10 @@ func add_gravity(delta: float) -> void:
 func add_movement() -> void:
 	velocity.x = SPEED * direction
 	var y_dist = abs(player.position.y - position.y)
+	
+	# Handle small ledges
+	if is_on_wall() and is_on_floor():
+		velocity = Vector2(direction * 20, -250)
 	
 	var in_chase_range = (
 		y_dist < Y_CHASE_RANGE and 
