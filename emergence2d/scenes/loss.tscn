@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwes1nth3x1gg"]
 
-[ext_resource type="Script" uid="uid://bulnfq8x0vp5v" path="res://scripts/replay_button.gd" id="1_bqrrl"]
+[ext_resource type="Script" uid="uid://bulnfq8x0vp5v" path="res://scripts/restart.gd" id="1_clwuq"]
 [ext_resource type="Script" uid="uid://dxyo4yroar078" path="res://scripts/quit.gd" id="2_clwuq"]
 
 [sub_resource type="FontFile" id="FontFile_066xx"]
@@ -73,7 +73,7 @@ label_settings = SubResource("LabelSettings_bqrrl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="restart" type="Button" parent="."]
+[node name="Restart Game" type="Button" parent="."]
 custom_minimum_size = Vector2(99.9993, 99.9993)
 layout_mode = 0
 offset_left = 2222.0
@@ -82,9 +82,9 @@ offset_right = 2608.0
 offset_bottom = 894.0
 text = "Restart game
 "
-script = ExtResource("1_bqrrl")
+script = ExtResource("1_clwuq")
 
-[node name="Button" type="Button" parent="."]
+[node name="Quit Game" type="Button" parent="."]
 layout_mode = 0
 offset_left = 444.0
 offset_top = 736.0
