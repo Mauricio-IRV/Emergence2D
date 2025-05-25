@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bcqjy0o5qa2f0"]
+[gd_scene load_steps=21 format=4 uid="uid://bcqjy0o5qa2f0"]
 
 [ext_resource type="Texture2D" uid="uid://ckvex56ypli3u" path="res://assets/Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png" id="1_2os1m"]
 [ext_resource type="Texture2D" uid="uid://bybfugxgvj4mv" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="2_7gny6"]
@@ -6,13 +6,14 @@
 [ext_resource type="Script" uid="uid://c0wjk8r0q6ewk" path="res://scripts/parallax_background.gd" id="3_7gny6"]
 [ext_resource type="Texture2D" uid="uid://s5c8upvswutt" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="4_2aecg"]
 [ext_resource type="Script" uid="uid://boo3m1ym430lh" path="res://scripts/water.gd" id="5_6dial"]
-[ext_resource type="Script" uid="uid://d16aoamdkq3fm" path="res://scripts/next_level.gd" id="6_7gny6"]
+[ext_resource type="Script" path="res://scripts/next_level.gd" id="6_7gny6"]
 [ext_resource type="PackedScene" uid="uid://dud7y8geq8078" path="res://scenes/boar.tscn" id="6_7nomh"]
 [ext_resource type="PackedScene" uid="uid://mvbbc4otdpxx" path="res://scenes/bee.tscn" id="7_1s4pk"]
 [ext_resource type="Script" uid="uid://vgfrwjxxelq4" path="res://scripts/bee.gd" id="8_x2xxo"]
 [ext_resource type="PackedScene" uid="uid://c1lrmvblgxa2l" path="res://scenes/player.tscn" id="9_2cbcq"]
 [ext_resource type="PackedScene" uid="uid://c6r0vfuw2pxk8" path="res://scenes/coin_ui.tscn" id="10_isj1j"]
 [ext_resource type="PackedScene" uid="uid://7uv01kmpr5ny" path="res://scenes/coin.tscn" id="11_so66j"]
+[ext_resource type="PackedScene" uid="uid://dsvvbqocblol0" path="res://scenes/hotbar.tscn" id="14_2aecg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_go7sj"]
 texture = ExtResource("1_2os1m")
@@ -1489,6 +1490,12 @@ tile_set = SubResource("TileSet_u5sy4")
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="hotbar" parent="CanvasLayer" instance=ExtResource("14_2aecg")]
+offset_left = 21.0
+offset_top = -278.0
+offset_right = 21.0
+offset_bottom = -278.0
 
 [node name="coin_ui" parent="CanvasLayer" instance=ExtResource("10_isj1j")]
 visible = false

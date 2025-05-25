@@ -178,7 +178,7 @@ func _ready() -> void:
 	cooldown.init_cooldown()
 
 func collect (item):
-	inv.insert(item)
+		inv.insert(item)
 
 func die():
 	reset_scene()

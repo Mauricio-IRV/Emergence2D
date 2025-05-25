@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dbnvnt7vpjcuf"]
+[gd_scene load_steps=16 format=4 uid="uid://dbnvnt7vpjcuf"]
 
 [ext_resource type="Texture2D" uid="uid://ckvex56ypli3u" path="res://assets/Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png" id="1_vcx5n"]
 [ext_resource type="Texture2D" uid="uid://bybfugxgvj4mv" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="2_56dhn"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://mvbbc4otdpxx" path="res://scenes/bee.tscn" id="8_ema3p"]
 [ext_resource type="Script" uid="uid://vgfrwjxxelq4" path="res://scripts/bee.gd" id="9_8uepa"]
 [ext_resource type="PackedScene" uid="uid://c1lrmvblgxa2l" path="res://scenes/player.tscn" id="10_q7pjq"]
+[ext_resource type="PackedScene" uid="uid://dsvvbqocblol0" path="res://scenes/hotbar.tscn" id="11_56dhn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wo48x"]
 texture = ExtResource("1_vcx5n")
@@ -1644,5 +1645,13 @@ position = Vector2(10, -16)
 scale = Vector2(1, 2.12572)
 zoom = Vector2(4, 4)
 metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="hotbar" parent="CanvasLayer" instance=ExtResource("11_56dhn")]
+offset_left = -6.0
+offset_top = -268.0
+offset_right = -6.0
+offset_bottom = -268.0
 
 [connection signal="body_entered" from="Hazards" to="Hazards/WorldEnd" method="_on_hazards_body_entered"]

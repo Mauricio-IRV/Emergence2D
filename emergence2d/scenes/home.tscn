@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://di3ogi3b7dcv1"]
+[gd_scene load_steps=5 format=3 uid="uid://di3ogi3b7dcv1"]
 
 [ext_resource type="Script" uid="uid://upfq1v8i41wy" path="res://scripts/home.gd" id="1_krot7"]
 [ext_resource type="Texture2D" uid="uid://l0e7iratuj8c" path="res://assets/Wizard Pack/Jump.png" id="2_u4wd2"]
 [ext_resource type="Texture2D" uid="uid://4pvn02dk7s6e" path="res://assets/Wizard Pack/Fall.png" id="3_w18ys"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w18ys"]
+font_size = 95
+font_color = Color(0.572844, 0.691874, 0.367292, 1)
+outline_size = 15
 
 [node name="home" type="Control"]
 layout_mode = 3
@@ -17,10 +22,16 @@ offset_bottom = 398.0
 script = ExtResource("1_krot7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = -212.0
-offset_right = 87.9999
-offset_bottom = 101.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.62
+anchor_top = 1.517
+anchor_right = -0.62
+anchor_bottom = 1.517
+offset_left = -150.0
+offset_top = -151.699
+offset_right = 149.999
+offset_bottom = -50.699
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -43,19 +54,28 @@ text = "About"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -962.0
-offset_top = -85.0
-offset_right = -218.0
-offset_bottom = 402.0
+offset_left = -1059.0
+offset_top = -28.001
+offset_right = -315.0
+offset_bottom = 458.999
 texture = ExtResource("2_u4wd2")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 147.0
-offset_top = -201.0
-offset_right = 657.0
-offset_bottom = 61.0
+offset_left = 337.0
+offset_top = 74.999
+offset_right = 847.0
+offset_bottom = 336.999
 texture = ExtResource("3_w18ys")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -360.0
+offset_top = -192.001
+offset_right = 273.0
+offset_bottom = -57.001
+text = "Emergence2D"
+label_settings = SubResource("LabelSettings_w18ys")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]
