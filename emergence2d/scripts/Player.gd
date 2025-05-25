@@ -4,7 +4,7 @@ class_name Player
 # Scenes
 @onready var animatedSprite := $AnimatedSprite2D
 @export var projectile_scene: PackedScene 
-@export var inv:Inv
+@export var inv:Inv =  preload("res://players_inv.tres")
 
 # Projectile Variables
 var shoot_direction: Vector2 = Vector2.ZERO

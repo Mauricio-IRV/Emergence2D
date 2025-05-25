@@ -1639,6 +1639,8 @@ script = ExtResource("9_8uepa")
 [node name="Player" parent="." instance=ExtResource("10_q7pjq")]
 visibility_layer = 3
 position = Vector2(537, -192)
+coyote_time = 0.15
+health = 100
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(10, -16)
