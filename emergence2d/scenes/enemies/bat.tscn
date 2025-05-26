@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://bnqt653i06e2b"]
+
+[ext_resource type="Script" uid="uid://b6jtjco76bo1" path="res://scripts/enemies/bat.gd" id="1_5m14n"]
+[ext_resource type="Texture2D" uid="uid://c30tq0n6qp8qd" path="res://assets/Monster_Creatures_Fantasy(Version 1.3)/Flying eye/Attack3.png" id="2_5m14n"]
+[ext_resource type="AudioStream" uid="uid://blseetcvefsuy" path="res://audio/angel-wings-flying.mp3" id="5_f0cyw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6os3"]
+atlas = ExtResource("2_5m14n")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18mee"]
+atlas = ExtResource("2_5m14n")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jofwc"]
+atlas = ExtResource("2_5m14n")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss5yy"]
+atlas = ExtResource("2_5m14n")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0cyw"]
+atlas = ExtResource("2_5m14n")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0x8h"]
+atlas = ExtResource("2_5m14n")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5s8h"]
+atlas = ExtResource("2_5m14n")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0x8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6os3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18mee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jofwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss5yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0cyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0x8h")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5s8h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m5s8h"]
+radius = 7.0
+
+[node name="Bat" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_5m14n")
+metadata/_custom_type_script = "uid://jh14p1s4nr5d"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(7, -3)
+sprite_frames = SubResource("SpriteFrames_m0x8h")
+autoplay = "default"
+frame_progress = 0.69048
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m5s8h")
+
+[node name="FlyAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_f0cyw")
+volume_db = 5.0
+pitch_scale = 1.55
+autoplay = true
+max_distance = 500.0

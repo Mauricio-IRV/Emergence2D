@@ -39,11 +39,7 @@ func setup(new_direction: Vector2, y_offset: float = 0) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.name == "Player":
 		pass
-	elif body.is_in_group("boar"):
-		CollisionAudio.play()
-		body.call_deferred("queue_free")
-		call_deferred("queue_free")
-	elif body.is_in_group("bee"):
+	elif body.is_in_group("enemy"):
 		CollisionAudio.play()
 		body.call_deferred("queue_free")
 		call_deferred("queue_free")

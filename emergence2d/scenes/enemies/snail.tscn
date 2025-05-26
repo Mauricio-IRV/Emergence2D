@@ -1,0 +1,133 @@
+[gd_scene load_steps=18 format=3 uid="uid://dyqop2dnssed2"]
+
+[ext_resource type="Script" uid="uid://cscd7mvndt85m" path="res://scripts/enemies/snail.gd" id="1_3pso2"]
+[ext_resource type="Texture2D" uid="uid://cndd0p3of35j1" path="res://assets/Legacy-Fantasy - High Forest 2.3/Mob/Snail/walk-Sheet.png" id="2_3pso2"]
+[ext_resource type="AudioStream" uid="uid://b0xui6fvcpmwu" path="res://audio/snow-step-3.mp3" id="6_sk2vh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ju45m"]
+atlas = ExtResource("2_3pso2")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8w0s"]
+atlas = ExtResource("2_3pso2")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duwbg"]
+atlas = ExtResource("2_3pso2")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nube2"]
+atlas = ExtResource("2_3pso2")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tybpi"]
+atlas = ExtResource("2_3pso2")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cecnm"]
+atlas = ExtResource("2_3pso2")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swcmx"]
+atlas = ExtResource("2_3pso2")
+region = Rect2(288, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk2vh"]
+atlas = ExtResource("2_3pso2")
+region = Rect2(336, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yf3i"]
+atlas = ExtResource("2_3pso2")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixpr5"]
+atlas = ExtResource("2_3pso2")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1gel"]
+atlas = ExtResource("2_3pso2")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvm76"]
+atlas = ExtResource("2_3pso2")
+region = Rect2(336, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4yf3i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ju45m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8w0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duwbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nube2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tybpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cecnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swcmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk2vh")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yf3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixpr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1gel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvm76")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixpr5"]
+radius = 1.1
+
+[node name="Snail" type="CharacterBody2D" groups=["enemy"]]
+z_index = 1
+script = ExtResource("1_3pso2")
+metadata/_custom_type_script = "uid://buqhtsy1kp877"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_4yf3i")
+animation = &"attack"
+autoplay = "default"
+frame_progress = 0.873194
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 3)
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_ixpr5")
+
+[node name="WalkAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_sk2vh")
+volume_db = 10.0
+autoplay = true
+max_distance = 500.0
+
+[node name="FloorRaycast" type="RayCast2D" parent="."]
+position = Vector2(-1, 3)
+target_position = Vector2(0, 16)

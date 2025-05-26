@@ -4,7 +4,7 @@ class_name Player
 # Scenes
 @onready var animatedSprite := $AnimatedSprite2D
 @export var projectile_scene: PackedScene 
-@export var inv:Inv =  preload("res://players_inv.tres")
+@export var inv:Inv =  preload('res://resources/players_inv.tres')
 
 # Projectile Variables
 var shoot_direction: Vector2 = Vector2.ZERO
@@ -44,7 +44,7 @@ func update_heart_display():
 		return
 	
 	for i in range(hearts_list.size()):
-		hearts_list[i].visible = i < health / 10
+		hearts_list[i].visible = i < health / 10.0
 
 	if hearts_list.size() > 0:
 		var heart_anim = hearts_list[0].get_child(0)
@@ -184,7 +184,7 @@ func die():
 	reset_scene()
 
 func reset_scene():
-	get_tree().change_scene_to_file("res://scenes/loss.tscn")
+	get_tree().change_scene_to_file("res://scenes/screens/loss.tscn")
 	#get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:

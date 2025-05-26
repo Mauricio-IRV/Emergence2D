@@ -17,11 +17,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-EventController="*res://scripts/event_controller.gd"
-GameController="*res://scripts/game_controller.gd"
-BgAudio="*res://scenes/bg_audio.tscn"
-CollisionAudio="*res://scenes/collision_audio.tscn"
-PickupAudio="*res://scenes/pickup_audio.tscn"
+EventController="*res://scripts/screens/event_controller.gd"
+GameController="*res://scripts/screens/game_controller.gd"
+BgAudio="*res://scenes/audios/bg_audio.tscn"
+CollisionAudio="*res://scenes/audios/collision_audio.tscn"
+PickupAudio="*res://scenes/audios/pickup_audio.tscn"
 
 [display]
 

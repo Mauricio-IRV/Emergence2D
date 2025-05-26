@@ -1,0 +1,160 @@
+[gd_scene load_steps=23 format=3 uid="uid://ddupmnxwc521v"]
+
+[ext_resource type="Script" uid="uid://b3oisjjxl46y0" path="res://scripts/enemies/evil_wizard.gd" id="1_376nh"]
+[ext_resource type="Texture2D" uid="uid://dv7o7i7nhyv82" path="res://assets/Evil Wizard II/Sprites/Attack2.png" id="2_376nh"]
+[ext_resource type="Texture2D" uid="uid://crnodxbrtkr70" path="res://assets/Evil Wizard II/Sprites/Run.png" id="2_iemne"]
+[ext_resource type="AudioStream" uid="uid://b0xui6fvcpmwu" path="res://audio/snow-step-3.mp3" id="6_odv76"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fh3c"]
+atlas = ExtResource("2_376nh")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf704"]
+atlas = ExtResource("2_376nh")
+region = Rect2(250, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umnt8"]
+atlas = ExtResource("2_376nh")
+region = Rect2(500, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6frf6"]
+atlas = ExtResource("2_376nh")
+region = Rect2(750, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur03l"]
+atlas = ExtResource("2_376nh")
+region = Rect2(1000, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aumnh"]
+atlas = ExtResource("2_376nh")
+region = Rect2(1250, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pm1e"]
+atlas = ExtResource("2_376nh")
+region = Rect2(1500, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72cpk"]
+atlas = ExtResource("2_376nh")
+region = Rect2(1750, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_376nh"]
+atlas = ExtResource("2_iemne")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lpki"]
+atlas = ExtResource("2_iemne")
+region = Rect2(250, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m642l"]
+atlas = ExtResource("2_iemne")
+region = Rect2(500, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfqu3"]
+atlas = ExtResource("2_iemne")
+region = Rect2(750, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk5xf"]
+atlas = ExtResource("2_iemne")
+region = Rect2(1000, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxsug"]
+atlas = ExtResource("2_iemne")
+region = Rect2(1250, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odv76"]
+atlas = ExtResource("2_iemne")
+region = Rect2(1500, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5t68"]
+atlas = ExtResource("2_iemne")
+region = Rect2(1750, 0, 250, 250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h5t68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fh3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf704")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umnt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6frf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur03l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aumnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pm1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72cpk")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_376nh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lpki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m642l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfqu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk5xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxsug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odv76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5t68")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iemne"]
+radius = 11.0
+height = 36.0
+
+[node name="EvilWizard" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_376nh")
+metadata/_custom_type_script = "uid://buqhtsy1kp877"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(2, -20)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_h5t68")
+autoplay = "default"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CapsuleShape2D_iemne")
+
+[node name="WalkAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_odv76")
+volume_db = 10.0
+autoplay = true
+max_distance = 500.0
+
+[node name="FloorRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 16)
