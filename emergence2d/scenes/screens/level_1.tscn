@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bybfugxgvj4mv" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="4_py5bd"]
 [ext_resource type="Texture2D" uid="uid://jk4e4rqafjjp" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="5_8lp4x"]
 [ext_resource type="PackedScene" uid="uid://c6r0vfuw2pxk8" path="res://scenes/items/coin_ui.tscn" id="7_46w1a"]
-[ext_resource type="PackedScene" uid="uid://dsvvbqocblol0" path="res://scenes/ui/hotbar.tscn" id="7_qw1gw"]
+[ext_resource type="PackedScene" uid="uid://o786b0rvu4xp" path="res://scenes/ui/hotbar.tscn" id="7_qw1gw"]
 [ext_resource type="PackedScene" uid="uid://7uv01kmpr5ny" path="res://scenes/items/coin.tscn" id="8_b4w6m"]
 [ext_resource type="Script" uid="uid://d16aoamdkq3fm" path="res://scripts/screens/next_level.gd" id="9_ry5xt"]
 [ext_resource type="Script" uid="uid://boo3m1ym430lh" path="res://scripts/screens/water.gd" id="10_jjoxb"]

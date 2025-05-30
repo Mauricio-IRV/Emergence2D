@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bnqt653i06e2b" path="res://scenes/enemies/bat.tscn" id="10_fwj7p"]
 [ext_resource type="PackedScene" uid="uid://c1lrmvblgxa2l" path="res://scenes/player.tscn" id="10_q7pjq"]
 [ext_resource type="PackedScene" uid="uid://ddupmnxwc521v" path="res://scenes/enemies/evil_wizard.tscn" id="11_06t3j"]
-[ext_resource type="PackedScene" uid="uid://dsvvbqocblol0" path="res://scenes/ui/hotbar.tscn" id="11_56dhn"]
+[ext_resource type="PackedScene" uid="uid://o786b0rvu4xp" path="res://scenes/ui/hotbar.tscn" id="11_56dhn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wo48x"]
 texture = ExtResource("1_vcx5n")
@@ -1695,9 +1695,9 @@ metadata/_edit_lock_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="hotbar" parent="CanvasLayer" instance=ExtResource("11_56dhn")]
-offset_left = -6.0
-offset_top = -268.0
-offset_right = -6.0
-offset_bottom = -268.0
+offset_left = 2.0
+offset_top = 193.0
+offset_right = 60.0
+offset_bottom = 233.0
 
 [connection signal="body_entered" from="Hazards" to="Hazards/WorldEnd" method="_on_hazards_body_entered"]
