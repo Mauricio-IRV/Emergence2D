@@ -1,14 +1,12 @@
 extends Panel
 @onready var button = $IconButton
-
+@onready var player := get_tree().get_current_scene().get_node_or_null("Player")
 
 @onready var icon_button = $IconButton
 @onready var count_label = $Label
 @onready var name_label = $Label2
 @export var item_id: String
 @export var name_text: String
-
-@onready var player = Player.new()
 
 @export var count: int:
 	set(value):
@@ -34,7 +32,7 @@ func get_hotbar() -> hotbar:
 
 func _process(delta):
 	handle_hot_keys()	
-	
+
 func _ready():
 	count_label.text = str(count)
 	name_label.text = name_text
@@ -54,5 +52,6 @@ func update_display(element):
 
 
 func handle_hot_keys ():
-	if Input.is_action_pressed("get_health"):
+	if Input.is_action_just_pressed("get_health"):
+		player.update_heart_display()
 		update_display("Health")

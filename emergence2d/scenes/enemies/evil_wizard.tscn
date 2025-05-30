@@ -127,7 +127,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iemne"]
@@ -144,7 +144,6 @@ position = Vector2(2, -20)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_h5t68")
 autoplay = "default"
-flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)

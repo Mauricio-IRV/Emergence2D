@@ -7,7 +7,7 @@ class_name Enemy
 
 # Enemy Dependent Variables
 @export var patrol_range := [-0, 0]
-@export var direction := 1
+@export var direction := 0
 @export var speed := 0.0
 @export var y_chase_range := 0
 @export var x_chase_range := 0
@@ -69,13 +69,13 @@ func handle_chase() -> void:
 	var dist_apart = player.position.x - position.x
 	direction = sign(dist_apart)
 	sprite.animation = "attack"
-	sprite.flip_h = direction == 1
+	sprite.flip_h = direction > 0
 
 # Handle patrol
 func handle_patrol() -> void:
 	direction = 1 if position.x < (init_pos.x + patrol_range[0]) else -1
 	sprite.animation = "default"
-	sprite.flip_h = direction == 1
+	sprite.flip_h = direction > 0
 
 # Handle enemy physics
 func _physics_process(_delta: float) -> void:	

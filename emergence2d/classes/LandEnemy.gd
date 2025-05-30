@@ -4,6 +4,8 @@ class_name LandEnemy
 @onready var floor_raycast := $FloorRaycast
 @onready var walk_audio := $WalkAudio
 
+@export var y_jump = -250
+
 # Add gravity to enemy
 func add_gravity(delta: float) -> void:
 	if not is_on_floor():
@@ -15,7 +17,7 @@ func add_movement() -> void:
 	
 	# Handle small ledges
 	if is_on_wall() and is_on_floor():
-		velocity = Vector2(direction * 20, -250)
+		velocity = Vector2(direction * 20, y_jump)
 
 # Update handle_chase to reflect land enemies
 func handle_chase() -> void:

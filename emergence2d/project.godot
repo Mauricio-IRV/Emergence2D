@@ -22,6 +22,7 @@ GameController="*res://scripts/screens/game_controller.gd"
 BgAudio="*res://scenes/audios/bg_audio.tscn"
 CollisionAudio="*res://scenes/audios/collision_audio.tscn"
 PickupAudio="*res://scenes/audios/pickup_audio.tscn"
+SceneManager="*res://scripts/screens/scene_manager.gd"
 
 [display]
 

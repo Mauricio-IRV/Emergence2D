@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwes1nth3x1gg"]
+[gd_scene load_steps=6 format=3 uid="uid://dwes1nth3x1gg"]
 
-[ext_resource type="Script" uid="uid://bulnfq8x0vp5v" path="res://scripts/screens/restart.gd" id="1_clwuq"]
+[ext_resource type="Script" uid="uid://bulnfq8x0vp5v" path="res://scripts/screens/restart_game.gd" id="1_8lu2c"]
+[ext_resource type="Script" uid="uid://b7rtjdxed4p8f" path="res://scripts/screens/retry_level.gd" id="2_8lu2c"]
 [ext_resource type="Script" uid="uid://dxyo4yroar078" path="res://scripts/screens/quit.gd" id="2_clwuq"]
 
 [sub_resource type="FontFile" id="FontFile_066xx"]
@@ -82,7 +83,17 @@ offset_right = 2608.0
 offset_bottom = 894.0
 text = "Restart game
 "
-script = ExtResource("1_clwuq")
+script = ExtResource("1_8lu2c")
+
+[node name="Retry Level" type="Button" parent="."]
+custom_minimum_size = Vector2(99.9993, 99.9993)
+layout_mode = 0
+offset_left = 1348.0
+offset_top = 728.0
+offset_right = 1734.0
+offset_bottom = 882.0
+text = "Restart Level"
+script = ExtResource("2_8lu2c")
 
 [node name="Quit Game" type="Button" parent="."]
 layout_mode = 0

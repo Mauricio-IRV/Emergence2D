@@ -22,27 +22,26 @@ var coyote_timer := 0.0
 @export var health := 100
 const JUMP_VELOCITY := -308.0
 const SPEED := 280.0
-var hearts_list: Array[TextureRect]
+@export var hearts_list: Array[TextureRect]
 var taking_dmg = false
 
 '''
 Handle Health
 '''
-#func init_hearts():
-	#var hearts_parent = get_node_or_null("health_bar/HBoxContainer")
-	#if hearts_parent == null:
-		#push_error("Could not find 'health_bar/HBoxContainer' in Player node!")
-		#return
-	#
-	#hearts_list.clear()
-	#for child in hearts_parent.get_children():
-		#hearts_list.append(child)
+func init_hearts():
+	var hearts_parent = get_node_or_null("health_bar/HBoxContainer")
+	if hearts_parent == null:
+		push_error("Could not find 'health_bar/HBoxContainer' in Player node!")
+		return
+	
+	for child in hearts_parent.get_children():
+		hearts_list.append(child)
 
 func update_heart_display():
-	#if hearts_list.is_empty():
-		#push_error("Cannot update heart display: hearts_list is empty!")
-		#return
-	print ("Health", health)
+	if hearts_list.is_empty():
+		push_error("Cannot update heart display: hearts_list is empty!")
+		return
+
 	for i in range(hearts_list.size()):
 		hearts_list[i].visible = i < health / 10.0
 
@@ -53,22 +52,20 @@ func update_heart_display():
 				heart_anim.play("beating")
 			elif health > 10:
 				heart_anim.play("idle")
-
 	if health <= 0:
 		print("Murdered... Defeated")
 
 func heal():
-	health += 10
+	health = min(health + 20, 100)
 	update_heart_display()
-	print ("somehow, you managed to heal yourself!!! Good for you dude")
 
-#func take_damage(amount):
-	#taking_dmg = true
-	#if health > 0: health -= amount
-	#damaged_audio.play()
-	#await get_tree().create_timer(0.15).timeout
-	#if (health-amount) <= 0: await get_tree().create_timer(0.4).timeout
-	#taking_dmg = false
+func take_damage(amount):
+	taking_dmg = true
+	if health > 0: health -= amount
+	damaged_audio.play()
+	await get_tree().create_timer(0.15).timeout
+	if (health-amount) <= 0: await get_tree().create_timer(0.4).timeout
+	taking_dmg = false
 
 '''
 Handle Projectiles
@@ -173,19 +170,18 @@ func handle_movement_and_animation(directionX: float, directionY: float, delta: 
 '''
 Main
 '''
-#func _ready() -> void:
-	##init_hearts()
-	#cooldown.init_cooldown()
+func _ready() -> void:
+	init_hearts()
+	cooldown.init_cooldown()
 
-#func collect (item):
-		#inv.insert(item)
+func collect (item):
+		inv.insert(item)
 
-#func die():
-	#reset_scene()
+func die():
+	reset_scene()
 
 func reset_scene():
-	get_tree().change_scene_to_file("res://scenes/screens/loss.tscn")
-	#get_tree().reload_current_scene()
+	SceneManager.go_to_loss_screen()
 
 func _physics_process(delta: float) -> void:
 	var directionX := Input.get_axis("move_left", "move_right")
