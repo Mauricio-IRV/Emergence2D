@@ -76,7 +76,7 @@ offset_left = -19.9998
 offset_top = -44.9997
 offset_right = 130.001
 offset_bottom = 25.001
-scale = Vector2(1.04355, 1.50423)
+scale = Vector2(1.04355, 1.50702)
 text = "Game Paused!
 "
 
