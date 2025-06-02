@@ -30,7 +30,8 @@ Folder that contains our tests is the test folder: https://github.com/Mauricio-I
 ## Manual Tests
 
 ### Player Mechanics:
-- Run Left \<A>
+**New Controls, Refer to ReadMe for up to Date Controls**
+<!-- - Run Left \<A>
 - Run Right \<D>
 - Jump \<W>
 - Crouching \<S>
@@ -49,7 +50,7 @@ Folder that contains our tests is the test folder: https://github.com/Mauricio-I
     >
     <Shoot-Down: 
         Shift+S+Spacebar
-    >
+    > -->
 
 ## Automated Tests
 

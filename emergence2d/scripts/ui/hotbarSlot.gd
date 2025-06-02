@@ -30,8 +30,8 @@ func get_hotbar() -> hotbar:
 		node = node.get_parent()
 	return null
 
-func _process(delta):
-	handle_hot_keys()	
+func _process(_delta):
+	handle_hot_keys()
 
 func _ready():
 	count_label.text = str(count)

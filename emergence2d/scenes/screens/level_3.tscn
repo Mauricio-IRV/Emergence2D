@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://ckvex56ypli3u" path="res://assets/Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png" id="1_vcx5n"]
 [ext_resource type="Texture2D" uid="uid://bybfugxgvj4mv" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="2_56dhn"]
 [ext_resource type="Texture2D" uid="uid://jk4e4rqafjjp" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="3_ax3dk"]
-[ext_resource type="Script" uid="uid://c0wjk8r0q6ewk" path="res://scripts/screens/parallax_background.gd" id="4_q2dsb"]
 [ext_resource type="Texture2D" uid="uid://s5c8upvswutt" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="5_p3r0x"]
 [ext_resource type="Script" uid="uid://boo3m1ym430lh" path="res://scripts/screens/water.gd" id="6_5xqnf"]
+[ext_resource type="Script" uid="uid://d16aoamdkq3fm" path="res://scripts/screens/next_level.gd" id="7_fwj7p"]
 [ext_resource type="PackedScene" uid="uid://dud7y8geq8078" path="res://scenes/enemies/boar.tscn" id="7_una4e"]
 [ext_resource type="PackedScene" uid="uid://mvbbc4otdpxx" path="res://scenes/enemies/bee.tscn" id="8_ema3p"]
 [ext_resource type="PackedScene" uid="uid://dyqop2dnssed2" path="res://scenes/enemies/snail.tscn" id="9_8adj0"]
@@ -1601,7 +1601,6 @@ metadata/_edit_lock_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2(-0.000205, -0.000205)
-script = ExtResource("4_q2dsb")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(6.99979, -437)
@@ -1626,6 +1625,13 @@ scale = Vector2(1.00548, 1.03442)
 polygon = PackedVector2Array(-986.595, 377.99, 6961.85, 377.99, 6961.85, 6.76708, 510.204, 4.83363, 510.204, -411.825, -986.593, -409.892)
 script = ExtResource("6_5xqnf")
 metadata/_edit_lock_ = true
+
+[node name="Doorway" type="Area2D" parent="."]
+
+[node name="NextLevel" type="CollisionPolygon2D" parent="Doorway"]
+position = Vector2(3783, -84)
+polygon = PackedVector2Array(2485, -46, 2509, -46, 2509, -2, 2485, -2)
+script = ExtResource("7_fwj7p")
 
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2(0, -27)
@@ -1701,3 +1707,4 @@ offset_right = 60.0
 offset_bottom = 233.0
 
 [connection signal="body_entered" from="Hazards" to="Hazards/WorldEnd" method="_on_hazards_body_entered"]
+[connection signal="body_entered" from="Doorway" to="Doorway/NextLevel" method="_on_doorway_body_entered"]
