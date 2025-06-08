@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dbnvnt7vpjcuf"]
+[gd_scene load_steps=20 format=4 uid="uid://dbnvnt7vpjcuf"]
 
 [ext_resource type="Texture2D" uid="uid://ckvex56ypli3u" path="res://assets/Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png" id="1_vcx5n"]
 [ext_resource type="Texture2D" uid="uid://bybfugxgvj4mv" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="2_56dhn"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://c1lrmvblgxa2l" path="res://scenes/player.tscn" id="10_q7pjq"]
 [ext_resource type="PackedScene" uid="uid://ddupmnxwc521v" path="res://scenes/enemies/evil_wizard.tscn" id="11_06t3j"]
 [ext_resource type="PackedScene" uid="uid://o786b0rvu4xp" path="res://scenes/ui/hotbar.tscn" id="11_56dhn"]
+[ext_resource type="PackedScene" uid="uid://dbv6b24yanolq" path="res://scenes/items/powerup.tscn" id="14_06t3j"]
+[ext_resource type="PackedScene" uid="uid://7uv01kmpr5ny" path="res://scenes/items/coin.tscn" id="14_fwj7p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wo48x"]
 texture = ExtResource("1_vcx5n")
@@ -1701,10 +1703,24 @@ metadata/_edit_lock_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="hotbar" parent="CanvasLayer" instance=ExtResource("11_56dhn")]
-offset_left = 2.0
-offset_top = 193.0
-offset_right = 60.0
-offset_bottom = 233.0
+offset_left = 28.0
+offset_top = 245.0
+offset_right = 86.0
+offset_bottom = 285.0
+
+[node name="Colllectibles" type="Node" parent="."]
+
+[node name="Powerup" parent="Colllectibles" instance=ExtResource("14_06t3j")]
+position = Vector2(1067, -309)
+
+[node name="coin" parent="Colllectibles" instance=ExtResource("14_fwj7p")]
+position = Vector2(4156, -47)
+
+[node name="coin2" parent="Colllectibles" instance=ExtResource("14_fwj7p")]
+position = Vector2(2324, -413)
+
+[node name="Powerup2" parent="Colllectibles" instance=ExtResource("14_06t3j")]
+position = Vector2(2108, -343)
 
 [connection signal="body_entered" from="Hazards" to="Hazards/WorldEnd" method="_on_hazards_body_entered"]
 [connection signal="body_entered" from="Doorway" to="Doorway/NextLevel" method="_on_doorway_body_entered"]

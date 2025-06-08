@@ -1,4 +1,5 @@
 extends ProgressBar
+class_name cooldown
 
 var cooldown_value := 100
 var cooldown_speed := 20

@@ -1,5 +1,5 @@
 extends Control
-
+@onready var settings = preload("res://scenes/screens/settings.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	visible = false
@@ -40,3 +40,9 @@ func _on_restart_pressed() -> void:
 func _on_main_menu_pressed() -> void:
 	resume()
 	get_tree().change_scene_to_file("res://scenes/screens/main_menu.tscn")
+
+
+func _on_settings_pressed() -> void:
+	#var settings_instance = settings.instantiate()
+	#add_child(settings_instance)
+	pass 

@@ -34,13 +34,15 @@ func _process(_delta):
 	handle_hot_keys()
 
 func _ready():
-	count_label.text = str(count)
-	name_label.text = name_text
+	if count:
+		count_label.text = str(count)
+	if name_text:
+		name_label.text = name_text
 	button.texture_normal = icon
 
 func update_display(element):
-	if count > 0:
-		if name_label.text == "Health" and element == "Health":
+	if count and count > 0:
+		if name_label.text == "Coins" and element == "Coins":
 			print("Healing player")
 			player.heal()
 			count -= 1
@@ -54,4 +56,4 @@ func update_display(element):
 func handle_hot_keys ():
 	if Input.is_action_just_pressed("get_health"):
 		player.update_heart_display()
-		update_display("Health")
+		update_display("Coins")

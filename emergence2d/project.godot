@@ -27,6 +27,7 @@ SceneManager="*res://scripts/screens/scene_manager.gd"
 
 window/size/viewport_width=2000
 window/size/viewport_height=1000
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

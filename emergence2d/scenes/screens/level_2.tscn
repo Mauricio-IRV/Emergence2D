@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://b6k2ikxih1wsx"]
+[gd_scene load_steps=17 format=4 uid="uid://b6k2ikxih1wsx"]
 
 [ext_resource type="Texture2D" uid="uid://ckvex56ypli3u" path="res://assets/Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png" id="1_hey2k"]
 [ext_resource type="Texture2D" uid="uid://jk4e4rqafjjp" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_172wr"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://s5c8upvswutt" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="4_fldb1"]
 [ext_resource type="PackedScene" uid="uid://c1lrmvblgxa2l" path="res://scenes/player.tscn" id="6_wo48x"]
 [ext_resource type="Script" uid="uid://boo3m1ym430lh" path="res://scripts/screens/water.gd" id="7_y0kc7"]
+[ext_resource type="PackedScene" uid="uid://dbv6b24yanolq" path="res://scenes/items/powerup.tscn" id="11_bou8w"]
 [ext_resource type="PackedScene" uid="uid://bnqt653i06e2b" path="res://scenes/enemies/bat.tscn" id="11_fjril"]
+[ext_resource type="PackedScene" uid="uid://7uv01kmpr5ny" path="res://scenes/items/coin.tscn" id="11_fykfo"]
 [ext_resource type="Script" uid="uid://d16aoamdkq3fm" path="res://scripts/screens/next_level.gd" id="11_hey2k"]
 [ext_resource type="PackedScene" uid="uid://o786b0rvu4xp" path="res://scenes/ui/hotbar.tscn" id="12_172wr"]
 [ext_resource type="PackedScene" uid="uid://dyqop2dnssed2" path="res://scenes/enemies/snail.tscn" id="12_bou8w"]
@@ -1759,10 +1761,24 @@ metadata/_edit_lock_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="hotbar" parent="CanvasLayer" instance=ExtResource("12_172wr")]
-offset_left = -18.0
-offset_top = 282.0
-offset_right = 22.0
-offset_bottom = 322.0
+offset_left = 26.0
+offset_top = 247.0
+offset_right = 66.0
+offset_bottom = 287.0
+
+[node name="Collectibles" type="Node" parent="."]
+
+[node name="Powerup2" parent="Collectibles" instance=ExtResource("11_bou8w")]
+position = Vector2(1457, -74)
+
+[node name="coin" parent="Collectibles" instance=ExtResource("11_fykfo")]
+position = Vector2(1165, -178)
+
+[node name="coin2" parent="Collectibles" instance=ExtResource("11_fykfo")]
+position = Vector2(2155, -31)
+
+[node name="Powerup" parent="Collectibles" instance=ExtResource("11_bou8w")]
+position = Vector2(1044, -49)
 
 [connection signal="body_entered" from="Hazards" to="Hazards/WorldEnd" method="_on_hazards_body_entered"]
 [connection signal="body_entered" from="Doorway" to="Doorway/NextLevel" method="_on_doorway_body_entered"]

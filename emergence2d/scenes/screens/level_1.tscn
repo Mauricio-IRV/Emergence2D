@@ -1,12 +1,13 @@
-[gd_scene load_steps=19 format=4 uid="uid://bcqjy0o5qa2f0"]
+[gd_scene load_steps=20 format=4 uid="uid://bcqjy0o5qa2f0"]
 
 [ext_resource type="Texture2D" uid="uid://s5c8upvswutt" path="res://assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="2_lc6q0"]
 [ext_resource type="Texture2D" uid="uid://ckvex56ypli3u" path="res://assets/Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png" id="3_qw1gw"]
 [ext_resource type="Texture2D" uid="uid://bybfugxgvj4mv" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="4_py5bd"]
 [ext_resource type="Texture2D" uid="uid://jk4e4rqafjjp" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="5_8lp4x"]
-[ext_resource type="PackedScene" uid="uid://c6r0vfuw2pxk8" path="res://scenes/items/coin_ui.tscn" id="7_46w1a"]
+[ext_resource type="PackedScene" uid="uid://dbv6b24yanolq" path="res://scenes/items/powerup.tscn" id="7_lc6q0"]
 [ext_resource type="PackedScene" uid="uid://o786b0rvu4xp" path="res://scenes/ui/hotbar.tscn" id="7_qw1gw"]
 [ext_resource type="PackedScene" uid="uid://7uv01kmpr5ny" path="res://scenes/items/coin.tscn" id="8_b4w6m"]
+[ext_resource type="Resource" uid="uid://c2h1f3pegdho2" path="res://resources/powerup.tres" id="8_qw1gw"]
 [ext_resource type="Script" uid="uid://d16aoamdkq3fm" path="res://scripts/screens/next_level.gd" id="9_ry5xt"]
 [ext_resource type="Script" uid="uid://boo3m1ym430lh" path="res://scripts/screens/water.gd" id="10_jjoxb"]
 [ext_resource type="PackedScene" uid="uid://c1lrmvblgxa2l" path="res://scenes/player.tscn" id="11_pygqb"]
@@ -1488,22 +1489,31 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="coin_ui" parent="CanvasLayer" instance=ExtResource("7_46w1a")]
-visible = false
-
 [node name="hotbar" parent="CanvasLayer" instance=ExtResource("7_qw1gw")]
-offset_left = 7.0
-offset_top = 259.0
-offset_right = 42.0
-offset_bottom = 335.0
+anchors_preset = -1
+anchor_left = 0.007
+anchor_top = -0.015
+anchor_right = 0.007
+anchor_bottom = -0.015
+offset_left = 11.0
+offset_top = 263.0
+offset_right = 46.0
+offset_bottom = 339.0
 
 [node name="Collectibles" type="Node" parent="."]
+
+[node name="Coin2" parent="Collectibles" instance=ExtResource("8_b4w6m")]
+position = Vector2(1731, -160)
 
 [node name="Coin" parent="Collectibles" instance=ExtResource("8_b4w6m")]
 position = Vector2(1221, -17)
 
-[node name="Coin2" parent="Collectibles" instance=ExtResource("8_b4w6m")]
-position = Vector2(1731, -160)
+[node name="Powerup" parent="Collectibles" instance=ExtResource("7_lc6q0")]
+position = Vector2(1912, -61)
+item = ExtResource("8_qw1gw")
+
+[node name="Powerup2" parent="Collectibles" instance=ExtResource("7_lc6q0")]
+position = Vector2(1386, -158)
 
 [node name="StaticBodies2D" type="StaticBody2D" parent="."]
 metadata/_edit_lock_ = true

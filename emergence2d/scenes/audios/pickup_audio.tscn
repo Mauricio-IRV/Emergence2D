@@ -5,3 +5,4 @@
 [node name="PickupAudio" type="AudioStreamPlayer"]
 stream = ExtResource("1_56fo4")
 volume_db = -15.0
+bus = &"SFX"

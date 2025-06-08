@@ -19,7 +19,7 @@ var coyote_timer := 0.0
 
 # Player properties
 @onready var damaged_audio = $DamagedAudio
-@export var health := 100
+@export var health := 10000000000
 const JUMP_VELOCITY := -308.0
 const SPEED := 280.0
 @export var hearts_list: Array[TextureRect]
@@ -175,7 +175,8 @@ func _ready() -> void:
 	cooldown.init_cooldown()
 
 func collect (item):
-		inv.insert(item)
+	print ("item successfully collected")
+	inv.insert(item)
 
 func die():
 	reset_scene()

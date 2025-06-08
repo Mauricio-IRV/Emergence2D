@@ -5,3 +5,4 @@
 [node name="ProjectileCollision" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_c7lrc")
 volume_db = 4.0
+bus = &"SFX"

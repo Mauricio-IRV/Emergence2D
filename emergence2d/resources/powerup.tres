@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="invItem" load_steps=3 format=3 uid="uid://c2h1f3pegdho2"]
+
+[ext_resource type="Script" uid="uid://culbldaklphe0" path="res://scripts/ui/inventory_item.gd" id="1_nurpo"]
+[ext_resource type="Texture2D" uid="uid://cjsj3i464y6cu" path="res://assets/Inventory/fb1025.png" id="2_e68ry"]
+
+[resource]
+script = ExtResource("1_nurpo")
+name = "powerup"
+texture = ExtResource("2_e68ry")
+metadata/_custom_type_script = "uid://culbldaklphe0"

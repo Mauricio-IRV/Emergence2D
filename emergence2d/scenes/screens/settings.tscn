@@ -1,0 +1,125 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf6jfc42yqwyj"]
+
+[ext_resource type="PackedScene" uid="uid://ddo3pjh3jfj4r" path="res://scenes/audios/h_slider.tscn" id="2_q3kmr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emdcu"]
+bg_color = Color(0.184314, 0.388235, 0.290196, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_emdcu"]
+font_size = 150
+font_color = Color(1, 1, 0.247059, 1)
+outline_size = 30
+outline_color = Color(0.671521, 0.66172, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jljg7"]
+font_size = 30
+font_color = Color(0.025966, 0.00771866, 0.0112502, 1)
+
+[node name="Settings" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_emdcu")
+
+[node name="sound" type="VBoxContainer" parent="."]
+process_mode = 3
+modulate = Color(0.321569, 0.164706, 0.835294, 1)
+custom_minimum_size = Vector2(399.999, 150.001)
+layout_mode = 0
+offset_left = 691.0
+offset_top = 587.0
+offset_right = 1091.0
+offset_bottom = 737.001
+theme_override_constants/separation = 30
+
+[node name="HSlider" parent="sound" instance=ExtResource("2_q3kmr")]
+process_mode = 3
+modulate = Color(0.102314, 0.221734, 0.217228, 1)
+custom_minimum_size = Vector2(-0.000205, 2.99935)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="sound/HSlider"]
+process_mode = 3
+layout_mode = 0
+offset_left = 2.0
+offset_top = -19.0
+offset_right = 57.0
+offset_bottom = 4.0
+text = "Volume"
+
+[node name="Background" parent="sound" instance=ExtResource("2_q3kmr")]
+modulate = Color(0.0791573, 0.020306, 0.268708, 1)
+custom_minimum_size = Vector2(-0.000205, 2.99935)
+layout_mode = 2
+bus = "Music"
+
+[node name="Label" type="Label" parent="sound/Background"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -17.0
+offset_right = 94.0
+offset_bottom = 32.0
+text = "Background
+"
+
+[node name="HSlider2" parent="sound" instance=ExtResource("2_q3kmr")]
+modulate = Color(0.135012, 0.135012, 0.135012, 1)
+custom_minimum_size = Vector2(-0.000205, 2.99935)
+layout_mode = 2
+bus = "SFX"
+
+[node name="Label" type="Label" parent="sound/HSlider2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -16.0
+offset_right = 44.0
+offset_bottom = 33.0
+text = "SFX
+"
+
+[node name="Settings" type="Label" parent="."]
+layout_mode = 0
+offset_left = 575.0
+offset_top = 52.0
+offset_right = 1407.0
+offset_bottom = 465.0
+rotation = 0.00471635
+text = "Settings
+"
+label_settings = SubResource("LabelSettings_emdcu")
+
+[node name="sounds" type="Label" parent="."]
+layout_mode = 0
+offset_left = 825.0
+offset_top = 457.0
+offset_right = 931.0
+offset_bottom = 544.0
+rotation = 0.00255715
+text = "Sounds
+"
+label_settings = SubResource("LabelSettings_jljg7")
+
+[node name="Done" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1656.0
+offset_top = 827.0
+offset_right = 1838.0
+offset_bottom = 895.0
+text = "Done"
+
+[connection signal="pressed" from="Done" to="sound/HSlider" method="_on_button_pressed"]

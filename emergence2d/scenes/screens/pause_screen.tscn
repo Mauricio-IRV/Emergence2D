@@ -100,6 +100,7 @@ size_flags_vertical = 3
 script = ExtResource("1_26ahl")
 
 [node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.996078)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -189,4 +190,5 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
