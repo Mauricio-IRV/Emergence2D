@@ -65,21 +65,21 @@ Throughout your adventure, you will collect and manage the following resources w
 - Enemies: Snails, Mushroom, Flying Eyes, Evil Wizard
 
 [font_size=40][color=orange]Game Objectives[/color][/font_size]
-- Move the wizard using your key bindings.
+- Face obstacles and enemies using powerups as a wizard throughout the map, refer to settings for the keybindings needed to do so.
 - Shoot and overcome obstacles.
 - Collect power-ups and pick-ups to refuel.
-- Avoid dying by keeping your hearts alive, overcoming enemies.
+- Avoid dying by keeping your hearts up, and overcoming enemies.
 - Progress through 3 exciting levels, each with unique obstacles and enemies.
 
 [font_size=40][color=grey]Settings & Instructions[/color][/font_size]
 From the home screen, access the following options:
 - [b]Play:[/b] Start the game and begin your adventure.
 - [b]Settings:[/b] View game instructions, key bindings, and adjust sound settings.
-- [b]About:[/b] View this information to learn about the game, controls, and credits.
+- [b]About:[/b] View this information to learn about the game, and credits.
 
 [font_size=40][color=grey]Acknowledgements & License[/color][/font_size]
-This game was crafted with dedication and passion. All assets and code are licensed under [b]MIT License[/b] (or your actual license).  
-Special thanks to all contributors, testers, and players!
+Special thanks to all contributors, testers, players, in particular Jeff and all our classmates in CS347!
+This game was crafted with dedication and passion. All assets and code are licensed under [b]MIT License[/b]
 
 [center][i]Enjoy the game and may your wizarding skills shine![/i][/center]
 "

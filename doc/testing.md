@@ -30,27 +30,7 @@ Folder that contains our tests is the test folder: https://github.com/Mauricio-I
 ## Manual Tests
 
 ### Player Mechanics:
-**New Controls, Refer to ReadMe for up to Date Controls**
-<!-- - Run Left \<A>
-- Run Right \<D>
-- Jump \<W>
-- Crouching \<S>
-- Shooting:
-    <Shoot (in the direction being faced): 
-        Spacebar
-    >
-    <Shoot-Left-Crouch: 
-        Shift+A+Spacebar
-    >
-    <Shoot-Right-Crouch: 
-        Shift+D+Spacebar
-    >
-    <Shoot-Up: 
-        Shift+W+Spacebar
-    >
-    <Shoot-Down: 
-        Shift+S+Spacebar
-    > -->
+**New Controls, Refer to in-game keybindings for up to date controls**
 
 ## Automated Tests
 

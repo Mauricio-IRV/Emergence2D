@@ -10,37 +10,27 @@ A 2D platformer shooting game. You spawn in by an ocean, and go on to explore th
 ### Windows
 - Download the Emergence2D.exe file
 
+## Development
+- Refer to the the doc/development.md & doc/running.md
+
 ## Exisiting Features
-- Player Movement & Actions
-- All levels (1, 2, 3)
+- Player Movement, Actions, and Projectiles
+- Game Sounds (Music, and SFX)
+- All Level Terrains (1, 2, 3)
 - All Enemies (Boar, Bees, Flying Eyeball, Snails, Wizards)
-- All Menus (Main Menu, Paused, Lost, Won)
-- Collectibles (Coins)
+- All Menus (Main Menu, Settings, About, Paused, Lost, Won)
+- Hotbar w/ hotslots on left hand side of screen (Use hotkeys to trigger collectibles such as healing & cooldown)
+- Collectibles (Coins which can be Hearts or Powerups (lowers cooldown))
+- Keybind Handling
+- Sound Customization (Volume, Music, SFX)
+- Player Unit Testing (Player damage tests, player health tests, player projectile cooldown tests)
 
-## To Do List
-- Other collectibles (Hearts, Rapid Fire)
-- Refine hotbar further
-- Reset Collectibles Past Levels
-- Settings & About Menus
+## Features that could have been nice to have
+- Keybindings are not perfect (you can only keybind 1 key at a time, so you can't bind a new SHIFT+A keybinding for example)
+- Maybe more collectibles, enemies, and levels (but base ones are great for the scope of the project)
+- Inventory (Was a potential avenue, some code is in place for its implementation, that would be included if the game had more than 5 collectibles)
 
-## Controls
-- Run Left \<A>
-- Run Right \<D>
-- Crouching \<S>
-- Jump \<Spacebar>
-- Shooting:
-    <Shoot (in the direction being faced): 
-        Left-Click
-    >
-    <Shoot-Left-Crouch: 
-        Shift+A+Left-Click
-    >
-    <Shoot-Right-Crouch: 
-        Shift+D+Left-Click
-    >
-    <Shoot-Down: 
-        Shift+S+Left-Click
-    >
-    <Shoot-Up: 
-        Shift+Spacebar+Left-Click
-    >
+## While in Game
+- Play the game and try to win
+- Refer to the settings pages for keybindings and audio control
+- Refer to about page for details on the game, acknowledgements

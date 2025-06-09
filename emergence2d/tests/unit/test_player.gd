@@ -28,7 +28,7 @@ func after_each():
 	await get_tree().process_frame
 
 '''
-Damage Tests
+Player Damage Tests
 '''
 func test_take_damage():
 	var dmg_amount = 10

@@ -36,7 +36,6 @@ func _ready():
 
 # Populate UI with current key bindings
 func _refresh_action_buttons():
-	InputMap.load_from_project_settings()
 	for child in actions_container.get_children():
 		child.queue_free()
 	
@@ -82,8 +81,7 @@ func _input(event):
 			accept_event()
 			
 		elif event is InputEventMouseButton and event.pressed:
-			if event.double_click():
-				event.double_click = false
+			if event.double_click: return
 			
 			InputMap.action_erase_events(current_action)
 			InputMap.action_add_event(current_action, event)
@@ -102,8 +100,9 @@ func _clear_remap_state():
 	current_action = null
 	current_button = null
 
-# Reset button handler (resets the remap view, not bindings)
+# Reset button handler
 func _on_reset_button_pressed() -> void:
+	InputMap.load_from_project_settings()
 	_refresh_action_buttons()
 
 # Hide settings UI
