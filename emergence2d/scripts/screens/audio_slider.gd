@@ -2,7 +2,6 @@ extends HSlider
 
 @export var bus: String 
 @export var index: int 
-@onready var settings = $"../../.."
 
 func  _ready() -> void:
 	index = AudioServer.get_bus_index(bus)
@@ -11,6 +10,3 @@ func  _ready() -> void:
 
 func _on_value_changed(amount:float):
 	AudioServer.set_bus_volume_db(index, linear_to_db(amount))
-
-func _on_done_pressed() -> void:
-	settings.visible = false

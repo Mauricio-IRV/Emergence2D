@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://biem7q21a14vo"]
+[gd_scene load_steps=8 format=3 uid="uid://biem7q21a14vo"]
 
 [ext_resource type="PackedScene" uid="uid://ddo3pjh3jfj4r" path="res://scenes/audios/h_slider.tscn" id="1_itwj6"]
+[ext_resource type="PackedScene" uid="uid://bobq40t3uf2oe" path="res://scenes/screens/input_button.tscn" id="2_jljg7"]
+[ext_resource type="Script" uid="uid://bxn1cm7vu1ojh" path="res://scripts/screens/keybinding.gd" id="2_q3kmr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emdcu"]
 bg_color = Color(0.576471, 0.890196, 0.894118, 1)
@@ -52,57 +54,12 @@ font_color = Color(0.843137, 0.933333, 0.054902, 1)
 outline_size = 30
 outline_color = Color(0.369265, 0.359442, 0.103727, 1)
 
-[sub_resource type="FontFile" id="FontFile_foest"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/35/0/ascent = 0.0
-cache/0/35/0/descent = 0.0
-cache/0/35/0/underline_position = 0.0
-cache/0/35/0/underline_thickness = 0.0
-cache/0/35/0/scale = 1.0
-cache/0/1000/0/ascent = 0.0
-cache/0/1000/0/descent = 0.0
-cache/0/1000/0/underline_position = 0.0
-cache/0/1000/0/underline_thickness = 0.0
-cache/0/1000/0/scale = 1.0
-cache/0/100/0/ascent = 0.0
-cache/0/100/0/descent = 0.0
-cache/0/100/0/underline_position = 0.0
-cache/0/100/0/underline_thickness = 0.0
-cache/0/100/0/scale = 1.0
-cache/0/500/0/ascent = 0.0
-cache/0/500/0/descent = 0.0
-cache/0/500/0/underline_position = 0.0
-cache/0/500/0/underline_thickness = 0.0
-cache/0/500/0/scale = 1.0
-cache/0/200/0/ascent = 0.0
-cache/0/200/0/descent = 0.0
-cache/0/200/0/underline_position = 0.0
-cache/0/200/0/underline_thickness = 0.0
-cache/0/200/0/scale = 1.0
-cache/0/50/0/ascent = 0.0
-cache/0/50/0/descent = 0.0
-cache/0/50/0/underline_position = 0.0
-cache/0/50/0/underline_thickness = 0.0
-cache/0/50/0/scale = 1.0
-cache/0/75/0/ascent = 0.0
-cache/0/75/0/descent = 0.0
-cache/0/75/0/underline_position = 0.0
-cache/0/75/0/underline_thickness = 0.0
-cache/0/75/0/scale = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_jljg7"]
-font = SubResource("FontFile_foest")
-font_size = 75
-font_color = Color(0.843137, 0.933333, 0.054902, 1)
-outline_size = 30
-outline_color = Color(0.369265, 0.359442, 0.103727, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3otaf"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Settings" type="Control"]
 process_mode = 3
@@ -149,104 +106,124 @@ label_settings = SubResource("LabelSettings_emdcu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sound" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1000.0
-offset_top = -176.0
-offset_right = 1000.0
-offset_bottom = -76.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Sound Controls"
-label_settings = SubResource("LabelSettings_jljg7")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="sound" type="VBoxContainer" parent="."]
+[node name="SoundContainer" type="VBoxContainer" parent="."]
 process_mode = 3
 custom_minimum_size = Vector2(399.999, 150.001)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.387
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -52.9995
-offset_right = 200.0
-offset_bottom = 205.0
+anchor_bottom = 0.387
+offset_left = -450.0
+offset_top = -103.0
+offset_right = 450.0
+offset_bottom = 83.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 15
 
-[node name="Volume" type="Label" parent="sound"]
+[node name="Volume" type="Label" parent="SoundContainer"]
 process_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "Volume"
 
-[node name="HSlider" parent="sound/Volume" instance=ExtResource("1_itwj6")]
+[node name="HSlider" parent="SoundContainer/Volume" instance=ExtResource("1_itwj6")]
 process_mode = 3
-custom_minimum_size = Vector2(-0.000205, 2.99935)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 1.19
+anchor_top = 0.548
 anchor_right = 0.5
-anchor_bottom = 1.19
+anchor_bottom = 0.548
 offset_left = -200.0
-offset_top = -7.98049
-offset_right = 200.0
-offset_bottom = 8.01951
+offset_top = -8.016
+offset_right = 440.0
+offset_bottom = 7.984
 size_flags_vertical = 2
+focus_mode = 0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_3otaf")
 
-[node name="Background" type="Label" parent="sound"]
+[node name="Background" type="Label" parent="SoundContainer"]
 process_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "Background"
 
-[node name="HSlider" parent="sound/Background" instance=ExtResource("1_itwj6")]
-custom_minimum_size = Vector2(-0.000205, 2.99935)
+[node name="HSlider" parent="SoundContainer/Background" instance=ExtResource("1_itwj6")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 1.19
+anchor_top = 0.548
 anchor_right = 0.5
-anchor_bottom = 1.19
+anchor_bottom = 0.548
 offset_left = -200.0
-offset_top = -7.98049
-offset_right = 200.0
-offset_bottom = 8.01951
+offset_top = -8.016
+offset_right = 440.0
+offset_bottom = 7.984
+focus_mode = 0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_3otaf")
 bus = "Music"
 
-[node name="SFX" type="Label" parent="sound"]
+[node name="SFX" type="Label" parent="SoundContainer"]
 process_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "SFX"
 
-[node name="HSlider" parent="sound/SFX" instance=ExtResource("1_itwj6")]
-custom_minimum_size = Vector2(-0.000205, 2.99935)
+[node name="HSlider" parent="SoundContainer/SFX" instance=ExtResource("1_itwj6")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 1.092
+anchor_top = 0.548
 anchor_right = 0.5
-anchor_bottom = 1.092
+anchor_bottom = 0.548
 offset_left = -200.0
-offset_top = -3.86449
-offset_right = 200.0
-offset_bottom = 12.1355
+offset_top = -8.016
+offset_right = 440.0
+offset_bottom = 7.984
+focus_mode = 0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_3otaf")
 bus = "Music"
+
+[node name="KeybindingsContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -25.0
+offset_right = 450.0
+offset_bottom = 463.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_q3kmr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KeybindingsContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="KeybindingsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="KeybindingsContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputButton" parent="KeybindingsContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_jljg7")]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="KeybindingsContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Reset to default"
 
 [node name="Done" type="Button" parent="."]
 layout_mode = 1
@@ -264,4 +241,5 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "Done"
 
-[connection signal="pressed" from="Done" to="sound/Volume/HSlider" method="_on_done_pressed"]
+[connection signal="pressed" from="KeybindingsContainer/VBoxContainer/ResetButton" to="KeybindingsContainer" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Done" to="KeybindingsContainer" method="_on_done_pressed"]

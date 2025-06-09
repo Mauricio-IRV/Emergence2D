@@ -46,27 +46,10 @@ text = "[center][b][font_size=50][color=#ffcc00]About the Game[/color][/font_siz
 [font_size=40][color=orange]Gameplay Overview[/color][/font_size]
 This game invites you to take on the role of a mighty wizard. Your mission is to overcome obstacles, defeat enemies, and collect power-ups to help you survive and progress.
 
-Use the following controls to navigate and battle through the levels:
-[b]Run Left:[/b] A
-[b]Run Right:[/b] D
-[b]Crouching:[/b] S
-[b]Jump:[/b] Spacebar
-
-- [b]Pause/Resume[/b]: Esc
-- [b]Quit[/b]: Command + Q
-
-[b]Shooting:[/b]
-- [b]Shoot (in the direction faced):[/b] Left-Click
-- [b]Shoot Left-Crouch:[/b] Shift + A + Left-Click
-- [b]Shoot Right-Crouch:[/b] Shift + D + Left-Click
-- [b]Shoot Down:[/b] Shift + S + Left-Click
-- [b]Shoot Up:[/b] Shift + Spacebar + Left-Click
-
 [font_size=40][color=green]Inventory[/color][/font_size]
-Throughout your adventure, you will collect and manage the following resources:
-- [b]Hearts:[/b] Represents your remaining trials (Max = 10)
-- [b]Gold Coins[/b]
-- [b]Power ups:[/b] Gives more shooting frequency
+Throughout your adventure, you will collect and manage the following resources which are given to you in the form of coins:
+- [b]Hearts:[/b] Provide you with more health to heal lost health (in the form of hearts)
+- [b]Power ups:[/b] Provides you with a shorter cooldown for a faster shooting frequency
 
 [font_size=40][color=blue]Levels[/color][/font_size]
 [b]LEVEL 1: Outdoors[/b]
