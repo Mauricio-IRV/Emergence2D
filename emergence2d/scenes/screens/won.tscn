@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://6y732h6y815r"]
+[gd_scene load_steps=9 format=3 uid="uid://6y732h6y815r"]
 
+[ext_resource type="Script" uid="uid://bulnfq8x0vp5v" path="res://scripts/screens/restart_game.gd" id="1_plhog"]
 [ext_resource type="Script" uid="uid://b6mravm4a2s26" path="res://scripts/screens/go_main_menu.gd" id="3_ky83m"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62gm0"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_plhog"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26ahl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ky83m"]
 bg_color = Color(0.784314, 0.784314, 0.784314, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -14,7 +15,7 @@ shadow_color = Color(0, 0, 0, 0.207843)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ma6jd"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ky8q"]
 bg_color = Color(0.588235, 0.588235, 0.588235, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -24,7 +25,7 @@ shadow_color = Color(0, 0, 0, 0.207843)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5aq7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdgpy"]
 bg_color = Color(1, 1, 1, 0.607843)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -84,7 +85,7 @@ cache/0/150/0/underline_position = 0.0
 cache/0/150/0/underline_thickness = 0.0
 cache/0/150/0/scale = 1.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_w118o"]
+[sub_resource type="LabelSettings" id="LabelSettings_jt2l0"]
 font = SubResource("FontFile_62gm0")
 font_size = 100
 font_color = Color(0.843137, 0.933333, 0.054902, 1)
@@ -111,18 +112,32 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.527
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.527
 offset_left = -409.0
-offset_top = -37.5
+offset_top = -82.5
 offset_right = 409.0
-offset_bottom = 37.5
+offset_bottom = 82.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 15
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_plhog")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ky83m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5ky8q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qdgpy")
+text = "Play Again"
+script = ExtResource("1_plhog")
 
 [node name="Main Menu" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(75, 75)
@@ -131,10 +146,10 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_62gm0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_26ahl")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ma6jd")
-theme_override_styles/normal = SubResource("StyleBoxFlat_w5aq7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_plhog")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ky83m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5ky8q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qdgpy")
 text = "Main Menu"
 script = ExtResource("3_ky83m")
 
@@ -152,6 +167,6 @@ offset_bottom = -70.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "You won the game!"
-label_settings = SubResource("LabelSettings_w118o")
+label_settings = SubResource("LabelSettings_jt2l0")
 horizontal_alignment = 1
 vertical_alignment = 1

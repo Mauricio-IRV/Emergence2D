@@ -127,6 +127,7 @@ stream = ExtResource("6_sk2vh")
 volume_db = 10.0
 autoplay = true
 max_distance = 500.0
+bus = &"SFX"
 
 [node name="FloorRaycast" type="RayCast2D" parent="."]
 position = Vector2(-1, 3)

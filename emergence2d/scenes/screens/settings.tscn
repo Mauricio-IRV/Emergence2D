@@ -188,7 +188,7 @@ offset_right = 440.0
 offset_bottom = 7.984
 focus_mode = 0
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_3otaf")
-bus = "Music"
+bus = "SFX"
 
 [node name="KeybindingsContainer" type="MarginContainer" parent="."]
 layout_mode = 1
