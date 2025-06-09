@@ -19,27 +19,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -14.0
 offset_right = 1.0
-offset_bottom = 805.0
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.017
-anchor_right = 1.0
-anchor_bottom = 2.06
-offset_left = 50.0
-offset_top = 69.0
-offset_right = 84.0
-offset_bottom = -991.0
+anchor_left = 0.042
+anchor_top = 0.072
+anchor_right = 0.961
+anchor_bottom = 0.966
+offset_top = -0.120003
+offset_bottom = 0.639954
 grow_horizontal = 2
 grow_vertical = 2
 mouse_force_pass_scroll_events = false
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
 bbcode_enabled = true
-text = "[center][b][font_size=30][color=#ffcc00]About the Game[/color][/font_size][/b][/center]
+text = "[center][b][font_size=50][color=#ffcc00]About the Game[/color][/font_size][/b][/center]
 
-[font_size=20][color=orange]Gameplay Overview[/color][/font_size]
+[font_size=40][color=orange]Gameplay Overview[/color][/font_size]
 This game invites you to take on the role of a mighty wizard. Your mission is to overcome obstacles, defeat enemies, and collect power-ups to help you survive and progress.
 
 Use the following controls to navigate and battle through the levels:
@@ -49,7 +53,7 @@ Use the following controls to navigate and battle through the levels:
 [b]Jump:[/b] Spacebar
 
 - [b]Pause/Resume[/b]: Esc
--[b]Quit[/b]: Command + Q
+- [b]Quit[/b]: Command + Q
 
 [b]Shooting:[/b]
 - [b]Shoot (in the direction faced):[/b] Left-Click
@@ -58,14 +62,13 @@ Use the following controls to navigate and battle through the levels:
 - [b]Shoot Down:[/b] Shift + S + Left-Click
 - [b]Shoot Up:[/b] Shift + Spacebar + Left-Click
 
-
-[font_size=20][color=green]Inventory[/color][/font_size]
+[font_size=40][color=green]Inventory[/color][/font_size]
 Throughout your adventure, you will collect and manage the following resources:
 - [b]Hearts:[/b] Represents your remaining trials (Max = 10)
 - [b]Gold Coins[/b]
 - [b]Power ups:[/b] Gives more shooting frequency
 
-[font_size=20][color=blue]Levels[/color][/font_size]
+[font_size=40][color=blue]Levels[/color][/font_size]
 [b]LEVEL 1: Outdoors[/b]
 - Obstacles: Trees, Rocks
 - Enemies: Boars, Bees
@@ -78,20 +81,20 @@ Throughout your adventure, you will collect and manage the following resources:
 - Obstacles: Rocks, Construction Material, Treasure and Trophies
 - Enemies: Snails, Mushroom, Flying Eyes, Evil Wizard
 
-[font_size=20][color=purple]Game Objectives[/color][/font_size]
+[font_size=40][color=orange]Game Objectives[/color][/font_size]
 - Move the wizard using your key bindings.
 - Shoot and overcome obstacles.
 - Collect power-ups and pick-ups to refuel.
 - Avoid dying by keeping your hearts alive, overcoming enemies.
 - Progress through 3 exciting levels, each with unique obstacles and enemies.
 
-[font_size=20][color=teal]Settings & Instructions[/color][/font_size]
+[font_size=40][color=grey]Settings & Instructions[/color][/font_size]
 From the home screen, access the following options:
 - [b]Play:[/b] Start the game and begin your adventure.
 - [b]Settings:[/b] View game instructions, key bindings, and adjust sound settings.
 - [b]About:[/b] View this information to learn about the game, controls, and credits.
 
-[font_size=20][color=grey]Acknowledgements & License[/color][/font_size]
+[font_size=40][color=grey]Acknowledgements & License[/color][/font_size]
 This game was crafted with dedication and passion. All assets and code are licensed under [b]MIT License[/b] (or your actual license).  
 Special thanks to all contributors, testers, and players!
 
@@ -99,13 +102,21 @@ Special thanks to all contributors, testers, and players!
 "
 autowrap_mode = 2
 
-[node name="close" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1591.0
-offset_top = 807.0
-offset_right = 1922.0
-offset_bottom = 935.0
+[node name="Close" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.873
+anchor_top = 0.899
+anchor_right = 0.873
+anchor_bottom = 0.899
+offset_left = -164.0
+offset_top = -64.04
+offset_right = 166.0
+offset_bottom = 63.96
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
 text = "Close
 "
 
-[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

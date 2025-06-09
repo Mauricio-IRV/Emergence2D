@@ -1497,8 +1497,8 @@ anchor_right = 0.007
 anchor_bottom = -0.015
 offset_left = 11.0
 offset_top = 263.0
-offset_right = 46.0
-offset_bottom = 339.0
+offset_right = 11.0
+offset_bottom = 263.0
 
 [node name="Collectibles" type="Node" parent="."]
 
@@ -1506,14 +1506,14 @@ offset_bottom = 339.0
 position = Vector2(1731, -160)
 
 [node name="Coin" parent="Collectibles" instance=ExtResource("8_b4w6m")]
-position = Vector2(1221, -17)
+position = Vector2(1213, -25)
 
 [node name="Powerup" parent="Collectibles" instance=ExtResource("7_lc6q0")]
-position = Vector2(1912, -61)
+position = Vector2(1904, -66)
 item = ExtResource("8_qw1gw")
 
 [node name="Powerup2" parent="Collectibles" instance=ExtResource("7_lc6q0")]
-position = Vector2(1386, -158)
+position = Vector2(1353, -201)
 
 [node name="StaticBodies2D" type="StaticBody2D" parent="."]
 metadata/_edit_lock_ = true

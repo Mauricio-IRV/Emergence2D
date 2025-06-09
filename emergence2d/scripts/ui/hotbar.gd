@@ -4,8 +4,8 @@ class_name hotbar
 var hotbar_slots := []
 
 var inventory = {
-	"heart": {"count": 0, "icon": preload("res://assets/Inventory/coin-frame-1.png"), "name": "Coins"},
-	"bolt": {"count": 0, "icon": preload("res://assets/Inventory/fb1025.png"), "name": "Power Up"},
+	"heart": {"count": 0, "icon": preload("res://assets/Inventory/heart.png"), "name": "Heart"},
+	"bolt": {"count": 0, "icon": preload("res://assets/Inventory/fast_fire.png"), "name": "Bolt"},
 	"empty": {"count":null, "icon": preload("res://assets/Inventory/blank.png"), "name": null}, 
 	"empty2": {"count":null, "icon": preload("res://assets/Inventory/blank.png"), "name": null},
 	"empty3": {"count":null, "icon": preload("res://assets/Inventory/blank.png"), "name": null},
@@ -13,6 +13,10 @@ var inventory = {
 
 func update_heart_count() -> void:
 	inventory["heart"].count += 1
+	_update_slot_display("heart")
+
+func degrade_heart_count() -> void:
+	inventory["heart"].count -= 1
 	_update_slot_display("heart")
 
 func update_bolt_count() -> void:
@@ -44,6 +48,7 @@ func _ready():
 			slot.icon = inventory["empty"].icon
 		if data.name != null and data.count > 0:
 			slot.name_text = data.name
+		
 		vbox.add_child(slot)
 		hotbar_slots.append(slot)
 

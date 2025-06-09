@@ -11,7 +11,7 @@ var shoot_direction: Vector2 = Vector2.ZERO
 var last_valid_shoot_direction: Vector2 = Vector2.RIGHT
 var direct_shoot_dir = Vector2.RIGHT
 var projectile_offset_y = 0
-@onready var cooldown = $CooldownBar
+@onready var cooldown_bar = $CooldownBar
 
 # Seconds of forgiveness after falling
 @export var coyote_time := 0.15
@@ -19,7 +19,7 @@ var coyote_timer := 0.0
 
 # Player properties
 @onready var damaged_audio = $DamagedAudio
-@export var health := 10000000000
+@export var health := 100
 const JUMP_VELOCITY := -308.0
 const SPEED := 280.0
 @export var hearts_list: Array[TextureRect]
@@ -90,8 +90,8 @@ func handle_aiming_input():
 		last_valid_shoot_direction = shoot_direction
 
 func handle_attack():
-	if not cooldown.is_cooldown_over(): return
-	else: cooldown.start_cooldown()
+	if not cooldown_bar.is_cooldown_over(): return
+	else: cooldown_bar.start_cooldown()
 	var actual_shoot_direction: Vector2
 	
 	if shoot_direction != Vector2.ZERO:
@@ -172,7 +172,7 @@ Main
 '''
 func _ready() -> void:
 	init_hearts()
-	cooldown.init_cooldown()
+	cooldown_bar.init_cooldown()
 
 func collect (item):
 	print ("item successfully collected")

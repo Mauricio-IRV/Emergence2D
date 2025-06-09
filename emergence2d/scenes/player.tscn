@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://gutj0x23a2ja" path="res://scenes/ui/heart.tscn" id="9_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://gryjrvtuayv7" path="res://scenes/ui/inv_ui.tscn" id="11_3v2ag"]
 [ext_resource type="PackedScene" uid="uid://cammhmimdd84m" path="res://scenes/ui/cooldown_bar.tscn" id="12_3v2ag"]
-[ext_resource type="PackedScene" uid="uid://b2c6oa66i2fn" path="res://scenes/screens/pause_screen.tscn" id="13_f1ej7"]
+[ext_resource type="PackedScene" uid="uid://beqo5dpgwan31" path="res://scenes/screens/pause_screen.tscn" id="13_f1ej7"]
 [ext_resource type="AudioStream" uid="uid://dw526qlfy6esg" path="res://audio/punch.mp3" id="13_jej6c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
@@ -414,16 +414,4 @@ volume_db = -10.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="pauseScreen" parent="CanvasLayer" instance=ExtResource("13_f1ej7")]
-anchors_preset = -1
-anchor_left = 0.501
-anchor_top = 0.512
-anchor_right = 0.501
-anchor_bottom = 0.512
-offset_left = -3476.0
-offset_top = -1750.0
-offset_right = 514.0
-offset_bottom = -143.0
-scale = Vector2(1.74138, 2.16425)
-size_flags_horizontal = 1
-size_flags_vertical = 1
+[node name="PauseScreen" parent="CanvasLayer" instance=ExtResource("13_f1ej7")]

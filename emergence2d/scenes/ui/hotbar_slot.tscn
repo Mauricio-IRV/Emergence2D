@@ -3,30 +3,70 @@
 [ext_resource type="Script" uid="uid://c6pmg5j5xh51f" path="res://scripts/ui/hotbarSlot.gd" id="1_8ds5q"]
 
 [node name="hotbarSlot" type="Panel"]
-custom_minimum_size = Vector2(150.001, 64.0001)
+custom_minimum_size = Vector2(60, 60)
 offset_right = 150.001
-offset_bottom = 30.0
+offset_bottom = 64.0001
 script = ExtResource("1_8ds5q")
 
 [node name="IconButton" type="TextureButton" parent="."]
-custom_minimum_size = Vector2(49.9996, 49.9996)
-layout_mode = 0
-offset_right = 79.9997
-offset_bottom = 79.9997
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0005
+offset_top = -20.0
+offset_right = 59.9992
+offset_bottom = 59.9997
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.499977, 0.499977)
 button_mask = 0
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 114.0
-offset_top = 9.0
-offset_right = 154.0
-offset_bottom = 32.0
+[node name="Numpad" type="Label" parent="IconButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.9991
+offset_top = -31.9996
+offset_right = 24.0009
+offset_bottom = 32.0004
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 59
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 54.0
-offset_top = 37.0
-offset_right = 94.0
-offset_bottom = 60.0
+[node name="Names" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Count" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 2
+vertical_alignment = 2

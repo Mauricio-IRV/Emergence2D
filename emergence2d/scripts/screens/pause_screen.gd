@@ -4,9 +4,8 @@ extends Control
 func _ready() -> void:
 	visible = false
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pause_game()
 
 func resume ():
@@ -14,7 +13,7 @@ func resume ():
 	hide_screen()
 
 func pause():
-	get_tree().paused =  true 	
+	get_tree().paused =  true
 	show_screen()
 
 func pause_game ():
@@ -41,8 +40,6 @@ func _on_main_menu_pressed() -> void:
 	resume()
 	get_tree().change_scene_to_file("res://scenes/screens/main_menu.tscn")
 
-
 func _on_settings_pressed() -> void:
-	#var settings_instance = settings.instantiate()
-	#add_child(settings_instance)
-	pass 
+	var settings_instance = settings.instantiate()
+	add_child(settings_instance)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b78mxlq11kxxq" path="res://scripts/ui/hotbar.gd" id="1_4qkdb"]
 
-[node name="hotbar" type="Control"]
+[node name="Hotbar" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

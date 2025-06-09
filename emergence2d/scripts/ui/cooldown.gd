@@ -3,7 +3,7 @@ class_name cooldown
 
 var cooldown_value := 100
 var cooldown_speed := 20
-var cooldown_active = false
+var cooldown_active := false
 
 func init_cooldown():
 	value = 100
@@ -21,7 +21,7 @@ func _process(delta):
 		cooldown_value -= cooldown_speed * delta
 		value = max(cooldown_value, 0)
 		cooldown_active = true
-	elif cooldown_value == 0:
+	elif cooldown_value <= 0:
 		value = 100
 		cooldown_value = 100
 		cooldown_active = false

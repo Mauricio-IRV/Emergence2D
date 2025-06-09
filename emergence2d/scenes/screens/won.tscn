@@ -1,10 +1,40 @@
-[gd_scene load_steps=10 format=3 uid="uid://c266ss4av5emh"]
+[gd_scene load_steps=8 format=3 uid="uid://6y732h6y815r"]
 
-[ext_resource type="Script" uid="uid://bulnfq8x0vp5v" path="res://scripts/screens/restart_game.gd" id="1_ky83m"]
-[ext_resource type="Script" uid="uid://b7rtjdxed4p8f" path="res://scripts/screens/retry_level.gd" id="2_5ky8q"]
 [ext_resource type="Script" uid="uid://b6mravm4a2s26" path="res://scripts/screens/go_main_menu.gd" id="3_ky83m"]
 
-[sub_resource type="FontFile" id="FontFile_8lu2c"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62gm0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26ahl"]
+bg_color = Color(0.784314, 0.784314, 0.784314, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.207843)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ma6jd"]
+bg_color = Color(0.588235, 0.588235, 0.588235, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.207843)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5aq7"]
+bg_color = Color(1, 1, 1, 0.607843)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.207843)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[sub_resource type="FontFile" id="FontFile_62gm0"]
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
@@ -38,137 +68,90 @@ cache/0/200/0/descent = 0.0
 cache/0/200/0/underline_position = 0.0
 cache/0/200/0/underline_thickness = 0.0
 cache/0/200/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/75/0/ascent = 0.0
+cache/0/75/0/descent = 0.0
+cache/0/75/0/underline_position = 0.0
+cache/0/75/0/underline_thickness = 0.0
+cache/0/75/0/scale = 1.0
+cache/0/150/0/ascent = 0.0
+cache/0/150/0/descent = 0.0
+cache/0/150/0/underline_position = 0.0
+cache/0/150/0/underline_thickness = 0.0
+cache/0/150/0/scale = 1.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_bqrrl"]
-paragraph_spacing = 2.99935
-font = SubResource("FontFile_8lu2c")
-font_size = 200
+[sub_resource type="LabelSettings" id="LabelSettings_w118o"]
+font = SubResource("FontFile_62gm0")
+font_size = 100
 font_color = Color(0.843137, 0.933333, 0.054902, 1)
 outline_size = 30
 outline_color = Color(0.369265, 0.359442, 0.103727, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8lu2c"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fhyi"]
-bg_color = Color(0.784314, 0.784314, 0.784314, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.207843)
-shadow_size = 5
-shadow_offset = Vector2(0, 3.5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8nrf"]
-bg_color = Color(0.588235, 0.588235, 0.588235, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.207843)
-shadow_size = 5
-shadow_offset = Vector2(0, 3.5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1f5k"]
-bg_color = Color(1, 1, 1, 0.607843)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.207843)
-shadow_size = 5
-shadow_offset = Vector2(0, 3.5)
-
-[node name="loss" type="Control"]
+[node name="Loss" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1000.0
-offset_top = 500.0
-offset_right = -1000.0
-offset_bottom = -500.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.996078)
 layout_mode = 1
-anchors_preset = -1
-offset_left = -6776.0
-offset_top = -3388.0
-offset_right = 6776.0
-offset_bottom = 3388.0
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -797.0
-offset_top = -253.0
-offset_right = 798.0
-offset_bottom = -48.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "You won the game!"
-label_settings = SubResource("LabelSettings_bqrrl")
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -728.5
-offset_top = -10.0
-offset_right = 728.5
-offset_bottom = 110.0
+offset_left = -409.0
+offset_top = -37.5
+offset_right = 409.0
+offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 12
 
-[node name="Restart Game" type="Button" parent="HBoxContainer"]
+[node name="Main Menu" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8lu2c")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3fhyi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b8nrf")
-theme_override_styles/normal = SubResource("StyleBoxFlat_v1f5k")
-text = "Restart game"
-script = ExtResource("1_ky83m")
-
-[node name="Retry Level" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8lu2c")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3fhyi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b8nrf")
-theme_override_styles/normal = SubResource("StyleBoxFlat_v1f5k")
-text = "Play Level Again"
-script = ExtResource("2_5ky8q")
-
-[node name="Main Menu" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8lu2c")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3fhyi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b8nrf")
-theme_override_styles/normal = SubResource("StyleBoxFlat_v1f5k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_62gm0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_26ahl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ma6jd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w5aq7")
 text = "Main Menu"
 script = ExtResource("3_ky83m")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000.0
+offset_top = -170.0
+offset_right = 1000.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You won the game!"
+label_settings = SubResource("LabelSettings_w118o")
+horizontal_alignment = 1
+vertical_alignment = 1
