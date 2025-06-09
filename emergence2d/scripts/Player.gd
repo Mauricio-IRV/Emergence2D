@@ -1,10 +1,11 @@
 extends CharacterBody2D
-class_name Player 
+class_name Player
  
 # Scenes
 @onready var animatedSprite := $AnimatedSprite2D
 @export var projectile_scene: PackedScene 
 @export var inv:Inv =  preload('res://resources/players_inv.tres')
+@export var test_mode := false
 
 # Projectile Variables
 var shoot_direction: Vector2 = Vector2.ZERO
@@ -55,8 +56,8 @@ func update_heart_display():
 	if health <= 0:
 		print("Murdered... Defeated")
 
-func heal():
-	health = min(health + 20, 100)
+func heal(amount):
+	health = min(health + amount, 100)
 	update_heart_display()
 
 func take_damage(amount):
@@ -185,6 +186,7 @@ func reset_scene():
 	SceneManager.go_to_loss_screen()
 
 func _physics_process(delta: float) -> void:
+	if test_mode: return
 	var directionX := Input.get_axis("move_left", "move_right")
 	var directionY := Input.get_axis("move_up", "move_down")
 

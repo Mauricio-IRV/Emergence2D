@@ -12,6 +12,9 @@ extends Panel
 @export var name_text: String
 @onready var hot_bar = get_node("../../")
 
+const HEART_HEAL_AMOUNT = 20
+const COOLDOWN_RATE = 80
+
 # Set item count and update count label display and position
 @export var count: int:
 	set(value):
@@ -57,25 +60,13 @@ func _ready():
 	var index = get_index()
 	numpad_label.text = str(index + 1)
 
-func update_display(element):
-	if count and count > 0:
-		if name_label.text == "Heart" and element == "Heart":
-			print("Healing player")
-			player.heal()
-			count -= 1
-			count_label.text = str(count)
-
-			var hot = get_hotbar()
-			if hot:
-				hot.inventory["heart"].count = count  # keep inventory in sync
-
 func _input(event):
 	if event.is_action_pressed("hotbar_slot_1"):
 		if hot_bar.inventory["heart"].count > 0:
-			player.heal()
+			player.heal(HEART_HEAL_AMOUNT)
 			hot_bar.degrade_heart_count()
 
 	if event.is_action_pressed("hotbar_slot_2"):
 		if hot_bar.inventory["bolt"].count > 0:
-			player.cooldown_bar.cooldown_speed += 80
+			player.cooldown_bar.cooldown_speed += COOLDOWN_RATE
 			hot_bar.degrade_bolt_count()
