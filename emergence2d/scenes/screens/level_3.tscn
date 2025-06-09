@@ -1666,23 +1666,26 @@ position = Vector2(3161, -246)
 [node name="Snail3" parent="Enemies" instance=ExtResource("9_8adj0")]
 position = Vector2(2744, -290)
 
+[node name="Snail4" parent="Enemies" instance=ExtResource("9_8adj0")]
+position = Vector2(4582, 7)
+
+[node name="Snail5" parent="Enemies" instance=ExtResource("9_8adj0")]
+position = Vector2(5524, -121)
+
 [node name="Bee5" parent="Enemies" instance=ExtResource("8_ema3p")]
 position = Vector2(3782, -40)
 
 [node name="Bee6" parent="Enemies" instance=ExtResource("8_ema3p")]
 position = Vector2(4115, -33)
 
-[node name="Bat" parent="Enemies" instance=ExtResource("10_fwj7p")]
-position = Vector2(5442, -29)
-
 [node name="Bat2" parent="Enemies" instance=ExtResource("10_fwj7p")]
-position = Vector2(5916, -30)
+position = Vector2(6118, -35)
 
 [node name="EvilWizard" parent="Enemies" instance=ExtResource("11_06t3j")]
 position = Vector2(5065, -33)
 
 [node name="EvilWizard2" parent="Enemies" instance=ExtResource("11_06t3j")]
-position = Vector2(6091, -12)
+position = Vector2(6015, 4)
 
 [node name="EvilWizard3" parent="Enemies" instance=ExtResource("11_06t3j")]
 position = Vector2(5680, -153)

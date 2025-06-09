@@ -1,6 +1,6 @@
 extends LandEnemy
 
-# Define Attributes
+# Define attributes for boar enemy instance
 func _ready():
 	super._ready()
 	patrol_range = [-80, 80]

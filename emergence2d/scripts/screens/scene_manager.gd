@@ -1,5 +1,10 @@
 extends Node
 
+'''
+Scene Manager: Manages transitions between levels, loss, and win screens,
+tracks current and previous scenes, and handles retry logic.
+'''
+
 var current_level_path := ""
 var previous_scene_path := ""
 var final_level = 3
@@ -25,7 +30,6 @@ func go_to_won_screen():
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/screens/won.tscn")
 
 func retry_level():
-	print("CURR LEVEL? ", current_level_path)
 	if current_level_path != "":
 		get_tree().change_scene_to_file(current_level_path)
 	else:

@@ -1,5 +1,11 @@
 extends Control
 class_name hotbar
+
+'''
+Manages the hotbar UI, tracking inventory items (hearts and bolts which represent fireball cooldown powerups),
+populates the hotbar accordingly and updates its counts and visuals in its corresponding hotbar slots
+'''
+
 @onready var vbox := $VBoxContainer
 var hotbar_slots := []
 
@@ -33,7 +39,7 @@ func _update_slot_display(item_name: String) -> void:
 			slot.count = inventory[item_name].count
 			slot.icon = inventory[item_name].icon
 			slot.name_text = inventory[item_name].name
-			break	
+			break
 
 func _ready():
 	for item_name in inventory.keys():
@@ -51,5 +57,3 @@ func _ready():
 		
 		vbox.add_child(slot)
 		hotbar_slots.append(slot)
-
-		

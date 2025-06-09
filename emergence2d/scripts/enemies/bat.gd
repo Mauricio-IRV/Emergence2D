@@ -1,6 +1,6 @@
 extends FlyingEnemy
 
-# Define Attributes
+# Define attributes for bat enemy instance
 func _ready():
 	super._ready()
 	patrol_range = [-40, 40]

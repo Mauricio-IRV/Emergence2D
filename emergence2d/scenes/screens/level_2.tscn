@@ -1772,7 +1772,7 @@ offset_bottom = 287.0
 position = Vector2(1367, -21)
 
 [node name="coin" parent="Collectibles" instance=ExtResource("11_fykfo")]
-position = Vector2(1387, -81)
+position = Vector2(1719, -53)
 
 [node name="coin2" parent="Collectibles" instance=ExtResource("11_fykfo")]
 position = Vector2(2155, -31)

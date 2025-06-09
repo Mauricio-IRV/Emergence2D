@@ -1,5 +1,10 @@
 extends MarginContainer
 
+'''
+ Game instance keybind handling
+'''
+
+# Preload input button scene and get references to UI elements
 @onready var input_key_scene = preload("res://scenes/screens/input_button.tscn")
 @onready var actions_container = $VBoxContainer/ScrollContainer/ActionList
 @onready var parent_settings = $"../"
@@ -8,10 +13,11 @@ var remap_active = false
 var current_action = null
 var current_button = null
 
+# Dictionary mapping input actions to display names
 var key_bindings = {
 	"move_left": "Move Left",
-	"move_right": "Move Right",
 	"move_down": "Crouch",
+	"move_right": "Move Right",
 	"attack": "Shoot",
 	"move_up": "Jump",
 	"shoot_ready_left": "Aim Left",
@@ -28,6 +34,7 @@ var key_bindings = {
 func _ready():
 	_refresh_action_buttons()
 
+# Populate UI with current key bindings
 func _refresh_action_buttons():
 	InputMap.load_from_project_settings()
 	for child in actions_container.get_children():
@@ -49,6 +56,7 @@ func _refresh_action_buttons():
 		actions_container.add_child(btn_instance)
 		btn_instance.pressed.connect(_on_button_pressed.bind(btn_instance, action_name))
 
+# Start remap process when button is pressed
 func _on_button_pressed(button, action_name):
 	if remap_active:
 		return
@@ -58,6 +66,7 @@ func _on_button_pressed(button, action_name):
 	current_button = button
 	button.find_child("LabelInput").text = "Press any key..."
 
+# Handle input events to assign new key bindings
 func _input(event):
 	if remap_active:
 		if event is InputEventKey and event.pressed and not event.echo:
@@ -83,17 +92,20 @@ func _input(event):
 			_clear_remap_state()
 			accept_event()
 
+# Update button UI text to reflect new binding
 func _update_button_label(button, event):
 	button.find_child("LabelInput").text = event.as_text().trim_suffix(" (Physical)")
 
+# Reset remapping state
 func _clear_remap_state():
 	remap_active = false
 	current_action = null
 	current_button = null
 
+# Reset button handler (resets the remap view, not bindings)
 func _on_reset_button_pressed() -> void:
 	_refresh_action_buttons()
 
-# Exit settings
+# Hide settings UI
 func _on_done_pressed() -> void:
 	parent_settings.visible = false

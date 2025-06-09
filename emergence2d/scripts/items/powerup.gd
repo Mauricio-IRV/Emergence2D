@@ -6,6 +6,7 @@ extends Node2D
 @onready var hot = get_node("../../CanvasLayer/hotbar")
 @onready var player = get_node ("../../Player")
 
+# Handles player pickup of a coin item (for fireball tscn & icon).
 func _on_area_2d_body_entered (body):
 	if body.name == "Player":
 		hot.update_bolt_count()

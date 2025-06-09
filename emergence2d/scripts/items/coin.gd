@@ -4,8 +4,9 @@ extends Node2D
 @export var item: invItem
 
 @onready var hot = get_node("../../CanvasLayer/hotbar")
-
 var player = null
+
+# Handles player pickup of a coin item (for heart tscn & icon).
 func _on_area_2d_body_entered (body):
 	if body.name == "Player":
 		player = body

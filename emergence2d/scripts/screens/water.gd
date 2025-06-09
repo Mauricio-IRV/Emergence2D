@@ -1,5 +1,9 @@
 extends CollisionPolygon2D
 
+'''
+Delays and then transitions to loss screen when the player enters the hazard area
+'''
+
 const DELAY = 0.3
 
 func _on_hazards_body_entered(body: Node2D) -> void:

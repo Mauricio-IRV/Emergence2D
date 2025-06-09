@@ -1,5 +1,11 @@
 extends Panel
 
+'''
+Represents a single hotbar slot UI element.
+Manages displaying the item icon, count, and name.
+Handles player input for using items (healing or projectile fireball cooldown) based on hotbar keys
+'''
+
 @onready var button = $IconButton
 @onready var player := get_tree().get_current_scene().get_node_or_null("Player")
 

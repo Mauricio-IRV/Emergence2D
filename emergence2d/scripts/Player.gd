@@ -1,10 +1,14 @@
 extends CharacterBody2D
 class_name Player
- 
+
+'''
+Handles player movement, shooting, health, animation, and inventory.
+'''
+
 # Scenes
 @onready var animatedSprite := $AnimatedSprite2D
 @export var projectile_scene: PackedScene 
-@export var inv:Inv =  preload('res://resources/players_inv.tres')
+@export var inv:Inv = preload('res://resources/players_inv.tres')
 @export var test_mode := false
 
 # Projectile Variables
@@ -14,7 +18,7 @@ var direct_shoot_dir = Vector2.RIGHT
 var projectile_offset_y = 0
 @onready var cooldown_bar = $CooldownBar
 
-# Seconds of forgiveness after falling
+# Seconds of forgiveness after falling (coyote time)
 @export var coyote_time := 0.15
 var coyote_timer := 0.0
 
@@ -25,6 +29,18 @@ const JUMP_VELOCITY := -308.0
 const SPEED := 280.0
 @export var hearts_list: Array[TextureRect]
 var taking_dmg = false
+
+# Timing constants
+const DAMAGE_COOLDOWN_TIME := 0.15
+const DEATH_DELAY_TIME := 0.4
+
+# Projectile offset
+const PROJECTILE_OFFSET_Y_DEFAULT := 15
+
+# Movement / Animation thresholds
+const VELOCITY_Y_THRESHOLD := 350
+const JUMP_DOWN_VELOCITY_DIVISOR := 2
+const VELOCITY_DAMPING := SPEED  # Used for velocity slowdown when no input
 
 '''
 Handle Health
@@ -53,8 +69,6 @@ func update_heart_display():
 				heart_anim.play("beating")
 			elif health > 10:
 				heart_anim.play("idle")
-	if health <= 0:
-		print("Murdered... Defeated")
 
 func heal(amount):
 	health = min(health + amount, 100)
@@ -62,10 +76,12 @@ func heal(amount):
 
 func take_damage(amount):
 	taking_dmg = true
-	if health > 0: health -= amount
+	if health > 0:
+		health -= amount
 	damaged_audio.play()
-	await get_tree().create_timer(0.15).timeout
-	if (health-amount) <= 0: await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(DAMAGE_COOLDOWN_TIME).timeout
+	if (health - amount) <= 0:
+		await get_tree().create_timer(DEATH_DELAY_TIME).timeout
 	taking_dmg = false
 
 '''
@@ -75,7 +91,7 @@ func is_aiming() -> bool:
 	return Input.is_action_pressed("shoot_ready_up") or Input.is_action_pressed("shoot_ready_down") or Input.is_action_pressed("shoot_ready_left") or Input.is_action_pressed("shoot_ready_right")
 
 func handle_aiming_input():
-	projectile_offset_y = 15
+	projectile_offset_y = PROJECTILE_OFFSET_Y_DEFAULT
 	if Input.is_action_pressed("shoot_ready_up"):
 		shoot_direction = Vector2.UP
 	elif Input.is_action_pressed("shoot_ready_down"):
@@ -91,8 +107,11 @@ func handle_aiming_input():
 		last_valid_shoot_direction = shoot_direction
 
 func handle_attack():
-	if not cooldown_bar.is_cooldown_over(): return
-	else: cooldown_bar.start_cooldown()
+	if not cooldown_bar.is_cooldown_over():
+		return
+	else:
+		cooldown_bar.start_cooldown()
+
 	var actual_shoot_direction: Vector2
 	
 	if shoot_direction != Vector2.ZERO:
@@ -108,7 +127,7 @@ func handle_attack():
 			animatedSprite.flip_h = true
 			shoot("attack_horizontal", actual_shoot_direction)
 		Vector2.UP:
-			shoot("attack_up",   actual_shoot_direction)
+			shoot("attack_up", actual_shoot_direction)
 		Vector2.DOWN:
 			shoot("crouch", actual_shoot_direction)
 
@@ -125,7 +144,7 @@ func shoot(animation_name: String, direction: Vector2) -> void:
 Handle Movement
 '''
 func handle_animation(directionX: float, directionY: float):
-	if velocity.y > 350:
+	if velocity.y > VELOCITY_Y_THRESHOLD:
 		animatedSprite.animation = "attack"
 	elif taking_dmg:
 		animatedSprite.animation = "death"
@@ -159,12 +178,12 @@ func handle_movement_and_animation(directionX: float, directionY: float, delta: 
 		velocity.y = JUMP_VELOCITY
 		coyote_timer = 0
 	elif Input.is_action_just_pressed("move_down"):
-		velocity.y = -(JUMP_VELOCITY / 2)
+		velocity.y = -(JUMP_VELOCITY / JUMP_DOWN_VELOCITY_DIVISOR)
 
 	if directionX:
 		velocity.x = directionX * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, VELOCITY_DAMPING)
 
 	handle_animation(directionX, directionY)
 
@@ -175,8 +194,7 @@ func _ready() -> void:
 	init_hearts()
 	cooldown_bar.init_cooldown()
 
-func collect (item):
-	print ("item successfully collected")
+func collect(item):
 	inv.insert(item)
 
 func die():
@@ -186,7 +204,8 @@ func reset_scene():
 	SceneManager.go_to_loss_screen()
 
 func _physics_process(delta: float) -> void:
-	if test_mode: return
+	if test_mode:
+		return
 	var directionX := Input.get_axis("move_left", "move_right")
 	var directionY := Input.get_axis("move_up", "move_down")
 
@@ -197,7 +216,6 @@ func _physics_process(delta: float) -> void:
 		projectile_offset_y = 0
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	elif Input.is_action_just_pressed("attack"):
-		pass
 		handle_attack()
 	else:
 		handle_movement_and_animation(directionX, directionY, delta)

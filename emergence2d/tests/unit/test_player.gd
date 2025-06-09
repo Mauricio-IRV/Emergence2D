@@ -1,5 +1,8 @@
 extends "res://addons/gut/test.gd"
 
+'''
+Player Unit Testing
+'''
 var player_tscn = load("res://scenes/player.tscn")
 
 var _player_instance
@@ -24,7 +27,9 @@ func after_each():
 		_player_instance = null
 	await get_tree().process_frame
 
-# Damage Tests
+'''
+Damage Tests
+'''
 func test_take_damage():
 	var dmg_amount = 10
 	var new_health = initial_health - dmg_amount
@@ -33,7 +38,9 @@ func test_take_damage():
 
 	assert_eq(_player_instance.health, new_health, "Player should have taken " + str(dmg_amount) + " damage")
 
-# Player Health Tests
+'''
+Player Health Tests
+'''
 func test_decrease_hearts():
 	var dmg_amount = 30
 	var new_heart_count = int((initial_health - dmg_amount) / 10)
@@ -73,7 +80,9 @@ func test_heal_updates_heart_display():
 
 	assert_eq(visible_heart_count, expected_visible_hearts, "Heart display mismatch, expected " + str(expected_visible_hearts) + ", but there's " + str(visible_heart_count))
 
-# Player Projectile Cooldown Tests
+'''
+Player Projectile Cooldown Tests
+'''
 func test_cooldown_starts_at_100():
 	var cooldown = _player_instance.cooldown_bar
 	cooldown.start_cooldown()

@@ -1,6 +1,10 @@
 extends CharacterBody2D
 class_name Enemy
 
+'''
+Defines a primary enemy class that all enemy types are derived from
+'''
+
 # OnReady Variables
 @onready var player := get_tree().get_current_scene().get_node_or_null("Player")
 @onready var sprite := $AnimatedSprite2D

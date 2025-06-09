@@ -1,6 +1,11 @@
 extends Control
 @onready var settings = preload("res://scenes/screens/settings.tscn")
 
+'''
+Handle Main Menu Navigation
+Ex. On game start, send the player to the first level
+'''
+
 func _on_play_pressed() -> void:
 	SceneManager.go_to_next_level()
 
